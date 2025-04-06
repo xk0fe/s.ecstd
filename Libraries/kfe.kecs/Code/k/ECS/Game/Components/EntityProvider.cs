@@ -7,36 +7,43 @@ namespace Sandbox.k.ECS.Game.Components;
 public class EntityProvider<T> : Component where T : struct
 {
 	[Property, InlineEditor] protected T _component { get; set; }
-	public int EntityId { get; set; }
 	
+	private int _entityId;
 	private bool _isInitialized;
-	
+
 	protected override void OnAwake()
 	{
 		base.OnAwake();
 		Initialize();
 	}
-	
 
-	public int CreateEntity()
+	public int GetEntity()
 	{
-		if (_isInitialized) return -1;
+		return _isInitialized ? _entityId : -1;
+	}
+
+	private int CreateEntity()
+	{
+		if (_isInitialized) return _entityId;
 		var world = World.Default;
-		EntityId = world.CreateEntity();
-		Log.Info($"ECS - Entity created with ID: {EntityId}");
+		_entityId = world.CreateEntity();
+		Log.Info($"ECS - Entity created with ID: {_entityId}");
 		_isInitialized = true;
-		return EntityId;
+		return _entityId;
 	}
 
 	private void Initialize()
 	{
 		var entity = CreateEntity();
-		Log.Info($"ECS - Linking component {typeof(T)} to entity {EntityId}");
-		entity.SetComponent( _component );
+		Log.Info($"ECS - Linking component {typeof(T)} to entity {_entityId}");
+		entity.SetComponent(_component);
 	}
 
-	public int GetEntity()
+	private void UpdateEntityComponent()
 	{
-		return _isInitialized ? EntityId : -1;
+		if (!_isInitialized) return;
+		
+		Log.Info($"ECS - Updating component {typeof(T)} for entity {_entityId}");
+		_entityId.SetComponent(_component);
 	}
 }

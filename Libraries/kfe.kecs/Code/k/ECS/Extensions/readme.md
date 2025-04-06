@@ -21,18 +21,18 @@ Example:
 ```cs
 public class AttackSystem : SystemBase
 {
-    private Filter _filter;
+    private EntityFilter _filter;
     
     public override bool Initialize()
     {
-        _filter = new Filter().With<AttackComponent>();
+        _filter = new EntityFilter( World.Default ).With<AttackComponent>();
     }
     
     public override void Update(float deltaTime)
     {
-        foreach (var entity in _filter.GetEntities())
+        foreach (var entity in _filter)
         {
-            var attackComponent = entity.Get<AttackComponent>();
+            ref var attackComponent = ref entity.Get<AttackComponent>();
             // Perform attack logic here
         }
     }

@@ -8,5 +8,6 @@ public class EnemyFeatureBase : FeatureBase
 	public EnemyFeatureBase()
 	{
 		AddSystem( new EnemySpawnerSystem() );
+		AddSystem( new EnemyMovementSystem() );
 	}
 }

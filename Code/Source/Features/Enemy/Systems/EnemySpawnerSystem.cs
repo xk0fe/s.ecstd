@@ -19,9 +19,9 @@ public class EnemySpawnerSystem : SystemBase
 	
 	public override void Update( float deltaTime )
 	{
-		Log.Info( $"count: {_filter.Count()}" );
 		foreach ( var entity in _filter )
 		{
+			entity.RemoveComponent<InvokeComponent>();
 			var spawner = entity.GetComponent<EnemySpawnerComponent>();
 			if ( !spawner.IsActive ) continue;
 
@@ -36,8 +36,6 @@ public class EnemySpawnerSystem : SystemBase
 				SpawnEnemy( spawner.SpawnPrefab, spawnPos );
 			}
 			Log.Info( "Spawning enemy!" );
-			
-			entity.RemoveComponent<InvokeComponent>();
 		}
 	}
 
