@@ -1,10 +1,10 @@
-﻿# Feature
+﻿# FeatureBase
 Feature is a class that contains a list of systems related to a specific ... feature. 
 For example, a feature could be "combat", and the systems related to that feature could be "attack", "defend", etc.
 
 Example:
 ```cs
-public class CombatFeature : Feature
+public class CombatFeature : FeatureBase
 {
     public CombatFeature()
     {
@@ -14,12 +14,12 @@ public class CombatFeature : Feature
 }
 ```
 
-# System
+# SystemBase
 System is a class that contains a filter and operates on entities that match that filter.
 
 Example:
 ```cs
-public class AttackSystem : System
+public class AttackSystem : SystemBase
 {
     private Filter _filter;
     

@@ -504,23 +504,28 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.Source.Features.Enemy.Components.EnemySpawnerComponent",
-          "__guid": "2696b9cc-c5bc-4647-81a7-85c730d1f002",
-          "IsActive": true,
+          "__type": "Sandbox.Source.Features.Enemy.Providers.EnemySpawnerProvider",
+          "__guid": "d712a12c-cb7c-41bd-94a8-cbdee8676c9e",
+          "_component": {
+            "SpawnCount": 10,
+            "SpawnRadius": 50,
+            "SpawnDelay": 3,
+            "IsActive": false,
+            "SpawnPosition": {
+              "_type": "gameobject",
+              "go": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3"
+            },
+            "SpawnPrefab": {
+              "_type": "gameobject",
+              "prefab": "prefabs/testenemy.prefab"
+            }
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "SpawnCount": 0,
-          "SpawnDelay": 0,
-          "SpawnPosition": {
-            "_type": "gameobject",
-            "go": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3"
-          },
-          "SpawnPrefab": null,
-          "SpawnRadius": 0
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -765,37 +770,6 @@
               "SurfaceVelocity": "0,0,0"
             }
           ]
-        }
-      ]
-    },
-    {
-      "__guid": "33d350c0-c18c-4670-afb8-14cce5bf56aa",
-      "Flags": 0,
-      "Name": "Cube",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "09542701-b637-4224-9a16-900da7d2a1cf",
-          "BodyGroups": 18446744073709551615,
-          "CreateAttachments": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/box.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
         }
       ]
     }

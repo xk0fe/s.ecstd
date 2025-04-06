@@ -1,8 +1,7 @@
-﻿using Sandbox.k.ECS.Game.Components;
+﻿// using IComponent = Sandbox.k.ECS.Core.Interfaces.IComponent;
 
 namespace Sandbox.Source.Features.Enemy.Components;
 
-public class EnemyComponent : EntityProvider<EnemyComponent>
+public struct EnemyComponent
 {
-	
 }

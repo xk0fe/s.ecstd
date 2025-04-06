@@ -4,11 +4,11 @@ namespace Sandbox.k.ECS.Extensions;
 
 public class InitializerBase : Component
 {
-	private readonly List<Feature> _features = new List<Feature>();
+	private readonly List<FeatureBase> _features = new List<FeatureBase>();
 	
-	protected void AddFeature( Feature feature )
+	protected void AddFeature( FeatureBase featureBase )
 	{
-		_features.Add( feature );
+		_features.Add( featureBase );
 	}
 	
 	protected override void OnAwake()

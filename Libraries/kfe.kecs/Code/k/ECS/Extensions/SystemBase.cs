@@ -1,6 +1,6 @@
 ﻿namespace Sandbox.k.ECS.Extensions;
 
-public class System
+public class SystemBase
 {
 	public virtual void Initialize()
 	{

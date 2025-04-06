@@ -3,9 +3,9 @@ using Sandbox.Source.Features.Enemy.Systems;
 
 namespace Sandbox.Source.Features.Enemy;
 
-public class EnemyFeature : Feature
+public class EnemyFeatureBase : FeatureBase
 {
-	public EnemyFeature()
+	public EnemyFeatureBase()
 	{
 		AddSystem( new EnemySpawnerSystem() );
 	}

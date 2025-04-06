@@ -2,16 +2,16 @@
 
 namespace Sandbox.k.ECS.Extensions;
 
-public class Feature
+public class FeatureBase
 {
 	public bool IsEnabled { get; set; } = true;
 	
-	private readonly List<System> _systems = new List<System>();
+	private readonly List<SystemBase> _systems = new List<SystemBase>();
 	private bool _isInitialized;
 	
-	public void AddSystem( System system )
+	public void AddSystem( SystemBase systemBase )
 	{
-		_systems.Add( system );
+		_systems.Add( systemBase );
 	}
 	
 	public virtual void Initialize()

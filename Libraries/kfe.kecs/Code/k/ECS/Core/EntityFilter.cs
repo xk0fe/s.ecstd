@@ -4,25 +4,25 @@ using System.Collections.Generic;
 
 namespace Sandbox.k.ECS.Core;
 
-public class Filter : IEnumerable<int>
+public class EntityFilter : IEnumerable<int>
 {
 	private World _world;
 	private List<Type> _with = new(); 
 	private List<Type> _without = new(); 
 	private List<int> _entities = new();
 	
-	public Filter( World world )
+	public EntityFilter( World world )
 	{
 		_world = world;
 	}
 
-	public Filter With<T>()
+	public EntityFilter With<T>() where T : struct
 	{
 		_with.Add(typeof(T));
 		return this;
 	}
 
-	public Filter Without<T>()
+	public EntityFilter Without<T>() where T : struct
 	{
 		_without.Add(typeof(T));
 		return this;
