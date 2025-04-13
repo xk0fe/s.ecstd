@@ -12,15 +12,16 @@ public class EnemyMovementSystem : SystemBase
 		.With<EnemyComponent>()
 		.With<PositionComponent>();
 
-	private const float MOVEMENT_SPEED = 5f;
+	private const float MOVEMENT_SPEED = 25f;
+	private readonly Vector3 _forward = Vector3.Left;
 
 	public override void Update( float deltaTime )
 	{
 		foreach ( var entity in _entityFilter )
 		{
 			ref var position = ref entity.GetComponent<PositionComponent>();
-			
-			position.Value += MOVEMENT_SPEED * deltaTime;
+
+			position.Value += _forward * MOVEMENT_SPEED * deltaTime;
 		}
 	}
 }

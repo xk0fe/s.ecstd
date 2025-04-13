@@ -9,6 +9,7 @@ public class EnemyFeatureBase : FeatureBase
 	public EnemyFeatureBase( DlContainer container )
 	{
 		AddSystem( new EnemySpawnerSystem( container ) );
+		AddSystem( new EnemySpawnAnimationSystem() );
 		AddSystem( new EnemyMovementSystem() );
 		AddSystem( new EnemySpawnerOverTimeSystem() );
 	}

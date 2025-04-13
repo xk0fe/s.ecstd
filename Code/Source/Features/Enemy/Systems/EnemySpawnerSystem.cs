@@ -37,12 +37,12 @@ public class EnemySpawnerSystem : SystemBase
 			var spawnPosition = spawner.SpawnPosition;
 			if ( !spawnPosition.IsValid() || !spawner.SpawnPrefab.IsValid() ) continue;
 			var position = spawnPosition.WorldPosition;
-			var spawnRadius = spawner.SpawnRadius;
+			// var spawnRadius = spawner.SpawnRadius;
 			for ( var i = 0; i < spawner.SpawnCount; i++ )
 			{
-				var spawnOffset = Random.Shared.Float( -spawnRadius, spawnRadius );
-				var spawnPos = position + spawnOffset;
-				SpawnEnemy( spawner.SpawnPrefab, spawnPos );
+				// var spawnOffset = Random.Shared.Float( -spawnRadius, spawnRadius );
+				// var spawnPos = position + spawnOffset;
+				SpawnEnemy( spawner.SpawnPrefab, position );
 			}
 			Log.Info( "Spawning enemy!" );
 		}

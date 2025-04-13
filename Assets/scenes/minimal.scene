@@ -104,7 +104,7 @@
       "__guid": "6ad70641-3c6c-4402-9c85-9a4969af4764",
       "Flags": 0,
       "Name": "Plane",
-      "Scale": "10,10,5",
+      "Scale": "15,15,5",
       "Enabled": true,
       "Components": [
         {
@@ -254,16 +254,16 @@
       "__guid": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3",
       "Flags": 0,
       "Name": "EnemySpawner",
-      "Position": "0,-250,0",
+      "Position": "0,-497.4851,38.55232",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.Source.Features.Enemy.Providers.EnemySpawnerProvider",
           "__guid": "d712a12c-cb7c-41bd-94a8-cbdee8676c9e",
           "_component": {
-            "SpawnCount": 2,
+            "SpawnCount": 1,
             "SpawnRadius": 50,
-            "SpawnDelay": 3,
+            "SpawnDelay": 5,
             "SpawnPosition": {
               "_type": "gameobject",
               "go": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3"
@@ -274,7 +274,7 @@
             },
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 1378.2266
+              "Relative": 5498.592
             }
           },
           "OnComponentDestroy": null,
@@ -301,7 +301,7 @@
           "__guid": "6f8c4e3f-4cd0-45dd-acba-9bb467a93cda",
           "Flags": 0,
           "Name": "Text",
-          "Position": "0,0,24.68374",
+          "Position": "0.00004577637,0.00009155273,113.413",
           "Rotation": "0,0,0.7071069,-0.7071066",
           "Enabled": true,
           "Components": [
@@ -325,7 +325,7 @@
               "Scale": 0.3,
               "TextAlignment": "Center",
               "TextScope": {
-                "Text": "Enemy Spawn",
+                "Text": "ZONE 49\nEXPERIMENTAL\nSPAWNER",
                 "TextColor": "1,1,1,1",
                 "FontName": "Poppins",
                 "FontSize": 89.12,
@@ -359,314 +359,6 @@
               }
             }
           ]
-        },
-        {
-          "__guid": "f4703ef0-5729-402c-8578-9d53451564bd",
-          "Flags": 0,
-          "Name": "Burst",
-          "Tags": "particles",
-          "Components": [
-            {
-              "__type": "Sandbox.ParticleEffect",
-              "__guid": "269f1799-0021-44a9-a582-7b266910f041",
-              "__version": 1,
-              "Alpha": {
-                "Type": "Curve",
-                "Evaluation": "Life",
-                "CurveA": [
-                  {
-                    "x": 0,
-                    "y": 1,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  },
-                  {
-                    "x": 1,
-                    "y": 0,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "CurveB": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "Constants": "1,0,0,0"
-              },
-              "ApplyAlpha": false,
-              "ApplyColor": false,
-              "ApplyRotation": false,
-              "ApplyShape": true,
-              "Bounce": 1,
-              "Brightness": 1,
-              "Bumpiness": 0,
-              "Collision": false,
-              "CollisionIgnore": null,
-              "CollisionRadius": 1,
-              "Damping": 0,
-              "DieOnCollisionChance": 0,
-              "Force": false,
-              "ForceDirection": "0,0,-800",
-              "ForceScale": 1,
-              "ForceSpace": "World",
-              "Friction": 1,
-              "Gradient": {
-                "Type": "Constant",
-                "Evaluation": "Particle",
-                "GradientA": {
-                  "blend": "Linear",
-                  "color": [
-                    {
-                      "t": 0.5,
-                      "c": "1,1,1,1"
-                    }
-                  ],
-                  "alpha": []
-                },
-                "GradientB": {
-                  "blend": "Linear",
-                  "color": [
-                    {
-                      "t": 0.5,
-                      "c": "1,1,1,1"
-                    }
-                  ],
-                  "alpha": []
-                },
-                "ConstantA": "1,1,1,1",
-                "ConstantB": "1,1,1,1"
-              },
-              "Lifetime": {
-                "Type": "Range",
-                "Evaluation": "Particle",
-                "CurveA": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "CurveB": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "Constants": "1,2,0,0"
-              },
-              "MaxParticles": 5000,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnParticleCreated": null,
-              "OnParticleDestroyed": null,
-              "OrbitalForce": {
-                "X": 0,
-                "Y": 0,
-                "Z": 0
-              },
-              "OrbitalPull": 0,
-              "PerParticleTimeScale": 1,
-              "Pitch": 0,
-              "PreWarm": 0,
-              "PushStrength": 0,
-              "Roll": {
-                "Type": "Range",
-                "Evaluation": "Particle",
-                "CurveA": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "CurveB": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "Constants": "0,360,0,0"
-              },
-              "Scale": {
-                "Type": "Curve",
-                "Evaluation": "Life",
-                "CurveA": [
-                  {
-                    "x": 0,
-                    "y": 0,
-                    "in": -9.333329,
-                    "out": 9.333329,
-                    "mode": "Mirrored"
-                  },
-                  {
-                    "x": 0.03325123,
-                    "y": 1,
-                    "in": -0.056075174,
-                    "out": 0.056075174,
-                    "mode": "Mirrored"
-                  },
-                  {
-                    "x": 1,
-                    "y": 0,
-                    "in": 2.9152544,
-                    "out": -2.9152544,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "CurveB": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "Constants": "1,0,0,0"
-              },
-              "SequenceId": 0,
-              "SequenceSpeed": 1,
-              "SequenceTime": 1,
-              "SheetSequence": false,
-              "Space": "World",
-              "StartDelay": 0,
-              "StartVelocity": {
-                "Type": "Range",
-                "Evaluation": "Particle",
-                "CurveA": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "CurveB": [
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": 0,
-                    "out": 0,
-                    "mode": "Mirrored"
-                  }
-                ],
-                "Constants": "10,70,0,0"
-              },
-              "Stretch": 0,
-              "TimeScale": 1,
-              "Tint": "1,1,1,1",
-              "Yaw": 0
-            },
-            {
-              "__type": "Sandbox.ParticleSpriteRenderer",
-              "__guid": "0ca1575f-3b17-4480-97f0-4a1426060794",
-              "Additive": false,
-              "Alignment": "LookAtCamera",
-              "BlurAmount": 0.5,
-              "BlurOpacity": 0.91,
-              "BlurSpacing": 0.73,
-              "DepthFeather": 0,
-              "FaceVelocity": false,
-              "FogStrength": 1,
-              "LeadingTrail": true,
-              "Lighting": false,
-              "MotionBlur": false,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Opaque": false,
-              "Pivot": "0.5,0.5",
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RotationOffset": 0,
-              "Scale": 1,
-              "Shadows": false,
-              "SortMode": "Unsorted",
-              "Texture": "materials/particles/shapes/circle1.vtex"
-            },
-            {
-              "__type": "Sandbox.ParticleSphereEmitter",
-              "__guid": "08f160b2-1307-423c-a64f-f56b188f966f",
-              "Burst": 10,
-              "Delay": 0,
-              "DestroyOnEnd": false,
-              "Duration": 0.05,
-              "Loop": true,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "OnEdge": true,
-              "Radius": 50,
-              "Rate": 0,
-              "RateOverDistance": 0,
-              "Velocity": 0
-            }
-          ]
-        },
-        {
-          "__guid": "8e6e0d22-ff3a-4a86-99ff-a15d211de6d3",
-          "Flags": 0,
-          "Name": "Decal",
-          "Position": "-0.01250935,0.3511047,16.42205",
-          "Rotation": "0,0.7071067,0,0.7071068",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "Sandbox.DecalRenderer",
-              "__guid": "616512e4-491f-433c-898a-b7f477bbd3e6",
-              "CutoffAngle": 60,
-              "CutoffAngleSoftness": 5,
-              "Material": "materials/decals/default.vmat",
-              "Mod2XBlending": false,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "Size": "100,100,32",
-              "TintColor": "1,1,1,1",
-              "TriPlanar": false
-            }
-          ]
         }
       ]
     },
@@ -674,6 +366,7 @@
       "__guid": "d744cfe3-e853-4e0a-882d-f6842defc434",
       "Flags": 0,
       "Name": "Player Controller",
+      "Position": "0,0,51.45152",
       "Enabled": true,
       "Components": [
         {
@@ -913,6 +606,698 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "6c1a41d4-1b67-41a3-a9af-dfe1010ce8fb",
+      "Flags": 0,
+      "Name": "holiday-tree",
+      "Position": "253.1803,-186.9557,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "9817abbf-d399-4502-8b37-71a93b3ac981",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": true,
+          "MaterialGroup": null,
+          "Model": "models/holiday-kit/holiday-tree.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "0d6970ef-52f2-4f95-91d4-063f40984dc0",
+      "Flags": 0,
+      "Name": "holiday-tree",
+      "Position": "-394.9323,-204.8026,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "ad800ff7-e641-49a9-b56e-d3e3b969ceea",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": true,
+          "MaterialGroup": null,
+          "Model": "models/holiday-kit/holiday-tree.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "923d8db3-f2b7-48b2-aa47-202618404489",
+      "Flags": 0,
+      "Name": "towerdefense_enemy-ufo-a",
+      "Position": "527.1777,-237.3759,48.61872",
+      "Rotation": "0.8923993,-0.2391176,-0.09904579,0.369644",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "42b905fb-f1ac-49e7-a13f-4e0a63ca7fb1",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_enemy-ufo-a.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "eacfc592-ceda-4c67-bbf0-db62d69293f4",
+      "Flags": 0,
+      "Name": "towerdefense_enemy-ufo-b",
+      "Position": "416.5775,-265.6129,0.000009113923",
+      "Rotation": "-0.1205905,-0.1294096,-0.0499502,0.9829631",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "81b8d81a-c55e-43ed-a795-1b78f25b3526",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_enemy-ufo-b.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "dd024a4b-00d4-4437-a5e9-7c1a30e263e9",
+      "Flags": 0,
+      "Name": "towerdefense_enemy-ufo-c",
+      "Position": "463.8547,-441.107,-0.00006442517",
+      "Rotation": "-0.1305262,0,0,0.9914449",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "191756ae-a2db-4aaa-a764-3fa6d52215a3",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_enemy-ufo-c.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b14069a2-efdd-46bd-bd0a-bb0f869ccb0e",
+      "Flags": 0,
+      "Name": "towerdefense_enemy-ufo-d",
+      "Position": "419.8221,-339.8576,-3.174258",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "5cf260df-b448-4f92-90bc-dccd186fd386",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_enemy-ufo-d.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d3374881-8ada-4f76-accf-cb9a30f354e1",
+      "Flags": 0,
+      "Name": "towerdefense_enemy-ufo-d-weapon",
+      "Position": "544.0888,-365.7853,-4.033647",
+      "Rotation": "0,0,-0.3826834,0.9238796",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "c57ff6c5-ac76-47c7-b2af-ed41a45bddb3",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_enemy-ufo-d-weapon.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "dfecc4db-e171-491e-8c2f-20c833eeea03",
+      "Flags": 0,
+      "Name": "towerdefense_selection-a",
+      "Position": "-100,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "4f764430-0ef5-4d69-9808-f1518b905ebc",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_selection-a.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c994b068-8c2b-4f4c-9e04-076453edfd0e",
+      "Flags": 0,
+      "Name": "towerdefense_selection-a (1)",
+      "Position": "100,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "f2aaa553-b1ac-441f-9847-28a6b90c4112",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_selection-a.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "30c86e9d-aefc-45db-a669-418cf75a07cf",
+      "Flags": 0,
+      "Name": "towerdefense_weapon-turret",
+      "Position": "-257.5624,324.2253,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "9284bbe2-5ca3-47ac-862c-d61362d3261b",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_weapon-turret.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4e296512-67dd-4045-b2eb-5279bb80325e",
+      "Flags": 0,
+      "Name": "towerdefense_tower-square-build-c",
+      "Position": "0,400,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "5a57addc-8c37-47dc-95b7-2fcf67ce2ce8",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": true,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_tower-square-build-c.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "01333972-56db-43b3-8e7e-5cfd6c7bb7dc",
+          "Flags": 0,
+          "Name": "cannon-mobile",
+          "Position": "-0.1282082,-0.5310059,77.43115",
+          "Rotation": "0,0,-0.7071067,0.7071068",
+          "Scale": "0.5,0.5,0.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "7e56f1d6-7340-47f7-bd8b-6fee5f95096d",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/pirate-kit/cannon-mobile.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "9b3a4470-b20f-441d-a45e-32caf81e2dee",
+      "Flags": 0,
+      "Name": "towerdefense_snow-wood-structure",
+      "Position": "-433.4409,290.4308,0.0000005215406",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "7a0c135b-d3e6-4557-ba1a-10eacfaba060",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": true,
+          "MaterialGroup": null,
+          "Model": "models/tower-defense-kit/towerdefense_snow-wood-structure.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "77df3ab0-2683-4144-b3d0-8140ed746d69",
+      "Flags": 0,
+      "Name": "Level",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "758ae13a-9978-4d4b-85d2-9b30c6a9bb4c",
+          "Flags": 0,
+          "Name": "towerdefense_tile-corner-large",
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "68056245-a7e9-40cd-8682-a56225dca7a4",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-corner-large.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "0eaa6c49-3d02-4058-b12a-83cf83f9e838",
+          "Flags": 0,
+          "Name": "towerdefense_tile-river-bridge",
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "ae2bab37-36e7-45ca-9809-d201b4c3590c",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-river-bridge.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "ed22d551-3d8c-4826-ba9d-217ea162ac1d",
+          "Flags": 0,
+          "Name": "towerdefense_tile-spawn-end",
+          "Position": "0,-500,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "94cb276f-a03c-45c6-88c0-2c44cb96c7a5",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-spawn-end.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "d516664c-3571-4e33-bae2-9f8f4bf372cd",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,-400,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "6ecff197-4bb7-4e36-83c2-fec9aa44c599",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "a0429d18-86d5-4366-99fa-58c736854eb9",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,-300,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "efe7f324-1b9d-4d05-9861-3e72393e721a",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "49378ad9-3ab1-4457-85eb-d82829c7f991",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,-200,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "77b06044-3999-476a-b4a9-e0a2abcd96ce",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "f52e1ce2-da7a-440f-907f-228548c00a5e",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,-100,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "a783fdd1-c3e0-4f93-a9ad-d5de7a3bfa63",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "40c3bffd-5dc3-4a66-b97d-fe97855979e0",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "9c6759f4-98d4-4311-a17f-5c4e694c7043",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "85c959bf-19d9-4039-ac0e-ef270e4ed7f8",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,100,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "0eda2d92-8847-4b2e-abb5-3cffe3c0f49f",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "07cc5af2-eef9-4065-80ca-433a7a38242f",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,200,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "acc4ab72-fc68-45f7-b053-16ba51beab94",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "__guid": "f2053af5-aeba-4cdb-813b-bc97d1249bbd",
+          "Flags": 0,
+          "Name": "towerdefense_tile-straight",
+          "Position": "0,300,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.Prop",
+              "__guid": "0dd6aaad-5f2a-430d-b9b2-e9c6ac4f32d5",
+              "BodyGroups": 18446744073709551615,
+              "Health": 0,
+              "IsStatic": true,
+              "MaterialGroup": null,
+              "Model": "models/tower-defense-kit/towerdefense_tile-straight.vmdl",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "OnPropBreak": null,
+              "OnPropTakeDamage": null,
+              "StartAsleep": false,
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -943,6 +1328,22 @@
   "ResourceVersion": 2,
   "Title": "minimal",
   "Description": null,
-  "__references": [],
+  "__references": [
+    "kenneynl.cannonmobile#87794",
+    "kenneynl.holidaytree#82269",
+    "kenneynl.towerdefenseenemyufoa#81521",
+    "kenneynl.towerdefenseenemyufob#81519",
+    "kenneynl.towerdefenseenemyufoc#81515",
+    "kenneynl.towerdefenseenemyufod#81513",
+    "kenneynl.towerdefenseenemyufodweapon#81514",
+    "kenneynl.towerdefenseselectiona#81512",
+    "kenneynl.towerdefensesnowwoodstructure#81460",
+    "kenneynl.towerdefensetilecornerlarge#81455",
+    "kenneynl.towerdefensetileriverbridge#81445",
+    "kenneynl.towerdefensetilespawnend#81435",
+    "kenneynl.towerdefensetilestraight#81430",
+    "kenneynl.towerdefensetowersquarebuildc#81395",
+    "kenneynl.towerdefenseweaponturret#81369"
+  ],
   "__version": 2
 }

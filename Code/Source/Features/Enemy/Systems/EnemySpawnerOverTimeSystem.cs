@@ -22,7 +22,7 @@ public class EnemySpawnerOverTimeSystem : SystemBase
 	{
 		foreach ( var entity in _filter )
 		{
-			var spawner = entity.GetComponent<EnemySpawnerComponent>();
+			ref var spawner = ref entity.GetComponent<EnemySpawnerComponent>();
 
 			if ( spawner.SpawnTimer < spawner.SpawnDelay ) continue;
 

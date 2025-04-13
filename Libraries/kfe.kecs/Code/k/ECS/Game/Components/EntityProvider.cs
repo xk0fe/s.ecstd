@@ -25,10 +25,20 @@ public class EntityProvider<T> : Component where T : struct
 	private int CreateEntity()
 	{
 		if (_isInitialized) return _entityId;
+		var entityLink = GetComponent<EntityProviderLink>();
+		if (entityLink.IsValid())
+		{
+			_entityId = entityLink.EntityId;
+			Log.Info($"ECS - Entity already created with ID: {_entityId}");
+			return _entityId;
+		}
+
+		entityLink = AddComponent<EntityProviderLink>();
 		var world = World.Default;
 		_entityId = world.CreateEntity();
 		Log.Info($"ECS - Entity created with ID: {_entityId}");
 		_isInitialized = true;
+		entityLink.EntityId = _entityId;
 		return _entityId;
 	}
 
