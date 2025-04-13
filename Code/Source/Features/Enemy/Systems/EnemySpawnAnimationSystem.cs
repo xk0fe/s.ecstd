@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
+using Sandbox.k.Tweening;
+using Sandbox.k.Tweening.Enums;
 using Sandbox.Source.Features.Common.Components;
 using Sandbox.Source.Features.Enemy.Components;
 using Sandbox.Utility;
@@ -26,28 +28,15 @@ public class EnemySpawnAnimationSystem : SystemBase
 	{
 		foreach ( var entity in _filter )
 		{
+			entity.SetComponent( new EnemyAnimatedTag() );
 			var gameObjectComponent = entity.GetComponent<GameObjectComponent>();
 			var gameObject = gameObjectComponent.Value;
-			LerpSize( gameObject, .5f, Vector3.One * .1f, Vector3.One, Easing.QuadraticOut );
-			entity.SetComponent( new EnemyAnimatedTag() );
+			TweenFactory.Scale( gameObject, .25f, Vector3.One * .25f, Vector3.One, EasingType.QuadraticOut );
+			if ( gameObject.Children.Count == 0 ) return;
+			var child = gameObject.Children[0];
+			if ( !child.IsValid() ) return;
+			TweenFactory.LocalPosition( child, .75f, child.LocalPosition + Vector3.Up * 5f,
+				child.LocalPosition, EasingType.QuadraticInOut, loopType: LoopType.PingPong );
 		}
-	}
-	
-	private async Task LerpSize( GameObject target, float seconds, Vector3 from, Vector3 to, Easing.Function easer )
-	{
-		TimeSince timeSince = 0;
-		while ( timeSince < seconds )
-		{
-			var size = Vector3.Lerp( from, to, easer( timeSince / seconds ) );
-			target.WorldScale = size;
-			await Task.Yield();
-		}
-		target.WorldScale = to;
-	}
-
-	private float EaseOutCubic(float t)
-	{
-		t = Math.Clamp(t, 0, 1);
-		return 1 - MathF.Pow(1 - t, 3);
 	}
 }

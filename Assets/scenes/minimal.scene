@@ -274,7 +274,7 @@
             },
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 5498.592
+              "Relative": 896.54443
             }
           },
           "OnComponentDestroy": null,
@@ -815,12 +815,12 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.Prop",
-          "__guid": "4f764430-0ef5-4d69-9808-f1518b905ebc",
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1a169fe6-8ac5-4a8f-afda-224bbd20ddae",
           "BodyGroups": 18446744073709551615,
-          "Health": 0,
-          "IsStatic": false,
+          "CreateAttachments": false,
           "MaterialGroup": null,
+          "MaterialOverride": null,
           "Model": "models/tower-defense-kit/towerdefense_selection-a.vmdl",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -828,10 +828,50 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
           "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.k.Tweening.Player.TweenPlayerComponent",
+          "__guid": "abaffd13-91b2-4354-9f68-d27c1979ba12",
+          "Delay": 0,
+          "Duration": 1,
+          "EasingType": "Linear",
+          "IsLooping": true,
+          "LoopCount": -1,
+          "LoopType": "PingPong",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Parameters": {
+            "_type": "component",
+            "component_id": "7586064c-0309-42e9-987f-c75e19f1018a",
+            "go": "dfecc4db-e171-491e-8c2f-20c833eeea03",
+            "component_type": "TweenScaleParameter"
+          },
+          "PlayOnAwake": true,
+          "TweenType": "Scale"
+        },
+        {
+          "__type": "Sandbox.k.Tweening.Player.Parameters.TweenScaleParameter",
+          "__guid": "7586064c-0309-42e9-987f-c75e19f1018a",
+          "From": "0.75,0.75,0.75",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "To": "1,1,1"
         }
       ]
     },
