@@ -1,20 +1,30 @@
 ﻿using System;
+using Sandbox.k.DependencyLocator;
 using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
 using Sandbox.Source.Features.Common.Components;
+using Sandbox.Source.Features.Common.Storages;
 using Sandbox.Source.Features.Enemy.Components;
 
 namespace Sandbox.Source.Features.Enemy.Systems;
 
 public class EnemySpawnerSystem : SystemBase
 {
+	private readonly TestStorage _storage;
+	
+	public EnemySpawnerSystem( DlContainer container )
+	{
+		_storage = container.Get<TestStorage>();
+	}
+	
 	private EntityFilter _filter;
 	public override void Initialize()
 	{
 		_filter = new EntityFilter( World.Default )
 			.With<EnemySpawnerComponent>()
-			.With<InvokeComponent>();
+			.With<InvokeComponent>()
+			.With<EnemySpawnerActiveTag>();
 	}
 	
 	public override void Update( float deltaTime )
@@ -23,8 +33,7 @@ public class EnemySpawnerSystem : SystemBase
 		{
 			entity.RemoveComponent<InvokeComponent>();
 			var spawner = entity.GetComponent<EnemySpawnerComponent>();
-			if ( !spawner.IsActive ) continue;
-
+			
 			var spawnPosition = spawner.SpawnPosition;
 			if ( !spawnPosition.IsValid() || !spawner.SpawnPrefab.IsValid() ) continue;
 			var position = spawnPosition.WorldPosition;

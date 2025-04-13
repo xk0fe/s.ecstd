@@ -7,14 +7,10 @@ namespace Sandbox.Source.Features.Common.Systems;
 
 public class GameObjectPositionSystem : SystemBase
 {
-	private EntityFilter _filter;
-	public override void Initialize()
-	{
-		_filter = new EntityFilter( World.Default )
+	private EntityFilter _filter = new EntityFilter( World.Default )
 			.With<GameObjectComponent>()
 			.With<PositionComponent>()
 			.With<SyncPositionToGameObjectTag>();
-	}
 
 	public override void Update( float deltaTime )
 	{
