@@ -30,6 +30,7 @@ public class EntityProvider<T> : Component where T : struct
 		{
 			_entityId = entityLink.EntityId;
 			Log.Info($"ECS - Entity already created with ID: {_entityId}");
+			_isInitialized = true;
 			return _entityId;
 		}
 
@@ -45,7 +46,7 @@ public class EntityProvider<T> : Component where T : struct
 	private void Initialize()
 	{
 		var entity = CreateEntity();
-		Log.Info($"ECS - Linking component {typeof(T)} to entity {_entityId}");
+		Log.Info($"ECS - Linking component {typeof(T).Name} to entity {_entityId}");
 		entity.SetComponent(_component);
 	}
 
@@ -53,7 +54,7 @@ public class EntityProvider<T> : Component where T : struct
 	{
 		if (!_isInitialized) return;
 		
-		Log.Info($"ECS - Updating component {typeof(T)} for entity {_entityId}");
+		Log.Info($"ECS - Updating component {typeof(T).Name} for entity {_entityId}");
 		_entityId.SetComponent(_component);
 	}
 }

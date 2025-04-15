@@ -1,5 +1,4 @@
-﻿using System;
-using Sandbox.k.DependencyLocator;
+﻿using Sandbox.k.DependencyLocator;
 using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
@@ -12,21 +11,17 @@ namespace Sandbox.Source.Features.Enemy.Systems;
 public class EnemySpawnerSystem : SystemBase
 {
 	private readonly TestStorage _storage;
-	
+
+	private EntityFilter _filter = new EntityFilter( World.Default )
+		.With<EnemySpawnerComponent>()
+		.With<InvokeComponent>()
+		.With<EnemySpawnerActiveTag>();
+
 	public EnemySpawnerSystem( DlContainer container )
 	{
 		_storage = container.Get<TestStorage>();
 	}
-	
-	private EntityFilter _filter;
-	public override void Initialize()
-	{
-		_filter = new EntityFilter( World.Default )
-			.With<EnemySpawnerComponent>()
-			.With<InvokeComponent>()
-			.With<EnemySpawnerActiveTag>();
-	}
-	
+
 	public override void Update( float deltaTime )
 	{
 		foreach ( var entity in _filter )

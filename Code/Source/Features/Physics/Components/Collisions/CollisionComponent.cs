@@ -1,0 +1,8 @@
+﻿using Sandbox.Source.Features.Physics.Common;
+
+namespace Sandbox.Source.Features.Physics.Components.Collisions;
+
+public struct CollisionComponent
+{
+	public Queue<CollisionData> Collisions;
+}

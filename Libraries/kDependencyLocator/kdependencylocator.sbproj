@@ -1,7 +1,14 @@
 {
   "Title": "k.DependencyLocator",
   "Type": "library",
-  "Org": "local",
+  "Org": "kfe",
   "Ident": "kdependencylocator",
-  "Schema": 1
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Mounts": null,
+  "IsStandaloneOnly": false,
+  "Metadata": {}
 }

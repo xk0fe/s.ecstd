@@ -7,16 +7,10 @@ namespace Sandbox.Source.Features.Enemy.Systems;
 
 public class EnemySpawnerOverTimeSystem : SystemBase
 {
-	private EntityFilter _filter;
-
-	public override void Initialize()
-	{
-		base.Initialize();
-		_filter = new EntityFilter( World.Default )
-			.With<EnemySpawnerComponent>()
-			.With<EnemySpawnerActiveTag>()
-			.Without<InvokeComponent>();
-	}
+	private EntityFilter _filter = new EntityFilter( World.Default )
+		.With<EnemySpawnerComponent>()
+		.With<EnemySpawnerActiveTag>()
+		.Without<InvokeComponent>();
 	
 	public override void Update( float deltaTime )
 	{

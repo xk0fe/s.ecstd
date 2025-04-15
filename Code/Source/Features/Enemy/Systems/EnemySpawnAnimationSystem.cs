@@ -1,28 +1,19 @@
-﻿using System;
-using System.Threading.Tasks;
-using Sandbox.k.ECS.Core;
+﻿using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
 using Sandbox.k.Tweening;
 using Sandbox.k.Tweening.Enums;
 using Sandbox.Source.Features.Common.Components;
 using Sandbox.Source.Features.Enemy.Components;
-using Sandbox.Utility;
 
 namespace Sandbox.Source.Features.Enemy.Systems;
 
 public class EnemySpawnAnimationSystem : SystemBase
 {
-	private EntityFilter _filter;
-
-	public override void Initialize()
-	{
-		base.Initialize();
-		_filter = new EntityFilter( World.Default )
-			.With<EnemyComponent>()
-			.With<GameObjectComponent>()
-			.Without<EnemyAnimatedTag>();
-	}
+	private EntityFilter _filter = new EntityFilter( World.Default )
+		.With<EnemyComponent>()
+		.With<GameObjectComponent>()
+		.Without<EnemyAnimatedTag>();
 
 	public override void Update( float deltaTime )
 	{
