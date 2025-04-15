@@ -8,9 +8,8 @@ public class SlotsFeature : FeatureBase
 {
 	public SlotsFeature( DlContainer container )
 	{
-		AddSystem( new OnSlotTriggerEnter() );
-		AddSystem( new OnSlotTriggerExit() );
-		
 		AddSystem( new SlotActiveSystem() );
+		AddSystem( new SlotUpdateTextSystem() );
+		AddSystem( new SlotUpgradeSystem() );
 	}
 }

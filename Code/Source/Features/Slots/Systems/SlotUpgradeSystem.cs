@@ -5,30 +5,34 @@ using Sandbox.Source.Features.Slots.Components;
 
 namespace Sandbox.Source.Features.Slots.Systems;
 
-public class SlotActiveSystem : SystemBase
+public class SlotUpgradeSystem : SystemBase
 {
 	private EntityFilter _filter = new EntityFilter( World.Default )
 		.With<SlotComponent>()
-		.With<SlotActiveTag>()
-		.Without<SlotCompleteTag>();
+		.With<SlotCompleteTag>();
 
 	public override void Update( float deltaTime )
 	{
 		base.Update( deltaTime );
 		foreach ( var entity in _filter )
 		{
-			Log.Info( "taking money" );
+			entity.RemoveComponent<SlotCompleteTag>();
 			ref var component = ref entity.GetComponent<SlotComponent>();
-
-			entity.SetComponent( new SlotUpdateTag() );
-			if (component.CurrentMoney <= 0)
+			component.CurrentMoney = 200000;
+			var enabledState = int.MinValue;
+			for ( var i = 0; i < component.States.Length; i++ )
 			{
-				entity.RemoveComponent<SlotActiveTag>();
-				entity.SetComponent( new SlotCompleteTag() );
-				continue;
+				var state = component.States[i];
+				if ( state.Enabled )
+				{
+					enabledState = i;
+					state.Enabled = false;
+				}
+				else if ( enabledState + 1 == i )
+				{
+					state.Enabled = true;
+				}
 			}
-			component.CurrentMoney--;
-			component.TextRenderer.Text = "$ " + component.CurrentMoney;
 		}
 	}
 }

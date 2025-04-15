@@ -7,7 +7,7 @@ namespace Sandbox.k.ECS.Game.Components;
 public class EntityProvider<T> : Component where T : struct
 {
 	[Property, InlineEditor] protected T _component { get; set; }
-	
+
 	private int _entityId;
 	private bool _isInitialized;
 
@@ -24,37 +24,51 @@ public class EntityProvider<T> : Component where T : struct
 
 	private int CreateEntity()
 	{
-		if (_isInitialized) return _entityId;
+		if ( _isInitialized )
+		{
+			OnEntityCreated( _entityId );
+			return _entityId;
+		}
+
 		var entityLink = GetComponent<EntityProviderLink>();
-		if (entityLink.IsValid())
+		if ( entityLink.IsValid() )
 		{
 			_entityId = entityLink.EntityId;
-			Log.Info($"ECS - Entity already created with ID: {_entityId}");
 			_isInitialized = true;
+			OnEntityCreated( _entityId );
+		
+			Log.Info( $"ECS - Entity already created with ID: {_entityId}" );
 			return _entityId;
 		}
 
 		entityLink = AddComponent<EntityProviderLink>();
 		var world = World.Default;
 		_entityId = world.CreateEntity();
-		Log.Info($"ECS - Entity created with ID: {_entityId}");
-		_isInitialized = true;
 		entityLink.EntityId = _entityId;
+		_isInitialized = true;
+		OnEntityCreated( _entityId );
+		
+		Log.Info( $"ECS - Entity created with ID: {_entityId}" );
 		return _entityId;
+	}
+
+	protected virtual void OnEntityCreated( int entityId )
+	{
 	}
 
 	private void Initialize()
 	{
 		var entity = CreateEntity();
-		Log.Info($"ECS - Linking component {typeof(T).Name} to entity {_entityId}");
-		entity.SetComponent(_component);
+		Log.Info( $"ECS - Linking component {typeof(T).Name} to entity {_entityId}" );
+		entity.SetComponent( _component );
 	}
 
+	[Button]
 	private void UpdateEntityComponent()
 	{
-		if (!_isInitialized) return;
-		
-		Log.Info($"ECS - Updating component {typeof(T).Name} for entity {_entityId}");
-		_entityId.SetComponent(_component);
+		if ( !_isInitialized ) return;
+
+		Log.Info( $"ECS - Updating component {typeof(T).Name} for entity {_entityId}" );
+		_entityId.SetComponent( _component );
 	}
 }

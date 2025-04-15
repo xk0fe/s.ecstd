@@ -15,7 +15,7 @@ public class Boot : InitializerBase
 		var container = new DlContainer()
 			.Register<TestStorage>();
 		AddFeature( new CommonFeature( container ) );
-		AddFeature( new PhysicsFeature( container ) );
+		// AddFeature( new PhysicsFeature( container ) );
 		
 		AddFeature( new SlotsFeature( container ) );
 		AddFeature( new EnemyFeature( container ) );

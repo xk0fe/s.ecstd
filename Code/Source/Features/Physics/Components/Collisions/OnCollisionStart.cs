@@ -2,5 +2,4 @@
 
 public struct OnCollisionStart
 {
-	public Queue<Collision> Collisions;
 }

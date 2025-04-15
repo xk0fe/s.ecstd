@@ -2,5 +2,4 @@
 
 public struct OnTriggerExitComponent
 {
-	public Queue<Collider> Triggers;
 }

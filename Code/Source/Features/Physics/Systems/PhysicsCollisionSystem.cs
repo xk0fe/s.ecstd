@@ -2,7 +2,6 @@
 using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
-using Sandbox.Source.Features.Common.Components;
 using Sandbox.Source.Features.Physics.Common;
 using Sandbox.Source.Features.Physics.Components;
 using Sandbox.Source.Features.Physics.Components.Collisions;
@@ -24,6 +23,7 @@ public class PhysicsCollisionSystem : SystemBase
 			entity.RemoveComponent<RecalculateTag>();
 			ref var component = ref entity.GetComponent<CollisionComponent>();
 			if ( component.Collisions == null ) continue;
+			
 			foreach ( var collision in component.Collisions )
 			{
 				switch ( collision.State )
@@ -48,42 +48,20 @@ public class PhysicsCollisionSystem : SystemBase
 
 	private void OnCollisionStart( int entity, CollisionData data )
 	{
-		if ( entity.HasComponent<OnCollisionStart>() )
-		{
-			ref var collisionStart = ref entity.GetComponent<OnCollisionStart>();
-			collisionStart.Collisions ??= new Queue<Collision>();
-			collisionStart.Collisions.Enqueue( data.Other );
-			return;
-		}
-
-		entity.SetComponent( new OnCollisionStart { Collisions = new Queue<Collision>( new[] { data.Other } ) } );
+		PhysicsStorage.GetCollisionStartQueue(entity).Enqueue(data.Other);
+		entity.SetComponent( new OnCollisionStart() );
 	}
 
 	private void OnCollisionUpdate( int entity, CollisionData data )
 	{
-		if ( entity.HasComponent<OnCollisionUpdate>() )
-		{
-			ref var collisionUpdate = ref entity.GetComponent<OnCollisionUpdate>();
-			collisionUpdate.Collisions ??= new Queue<Collision>();
-			collisionUpdate.Collisions.Enqueue( data.Other );
-			return;
-		}
-
-		entity.SetComponent( new OnCollisionUpdate { Collisions = new Queue<Collision>( new[] { data.Other } ) } );
+		PhysicsStorage.GetCollisionUpdateQueue(entity).Enqueue(data.Other);
+		entity.SetComponent( new OnCollisionUpdate() );
 	}
 
 	private void OnCollisionStop( int entity, CollisionData data )
 	{
-		var stopCollision = data.Stop;
-		var collision = new Collision( stopCollision.Self, stopCollision.Other, default );
-		if ( entity.HasComponent<OnCollisionStop>() )
-		{
-			ref var collisionStop = ref entity.GetComponent<OnCollisionStop>();
-			collisionStop.Collisions ??= new Queue<Collision>();
-			collisionStop.Collisions.Enqueue( collision );
-			return;
-		}
-
-		entity.SetComponent( new OnCollisionStop { Collisions = new Queue<Collision>( new[] { collision } ) } );
+		var collision = new Collision( data.Stop.Self, data.Stop.Other, default );
+		PhysicsStorage.GetCollisionStopQueue(entity).Enqueue(collision);
+		entity.SetComponent( new OnCollisionStop() );
 	}
 }

@@ -261,20 +261,14 @@
           "__type": "Sandbox.Source.Features.Enemy.Providers.EnemySpawnerProvider",
           "__guid": "d712a12c-cb7c-41bd-94a8-cbdee8676c9e",
           "_component": {
-            "SpawnCount": 1,
-            "SpawnRadius": 50,
-            "SpawnDelay": 5,
-            "SpawnPosition": {
-              "_type": "gameobject",
-              "go": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3"
-            },
-            "SpawnPrefab": {
-              "_type": "gameobject",
-              "prefab": "prefabs/testenemy.prefab"
-            },
+            "SpawnCount": 0,
+            "SpawnRadius": 0,
+            "SpawnDelay": 0,
+            "SpawnPosition": null,
+            "SpawnPrefab": null,
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 3320.973
+              "Relative": 9846.641
             }
           },
           "OnComponentDestroy": null,
@@ -367,6 +361,7 @@
       "Flags": 0,
       "Name": "Player Controller",
       "Position": "0,0,51.45152",
+      "Tags": "player",
       "Enabled": true,
       "Components": [
         {
@@ -637,74 +632,15 @@
       ]
     },
     {
-      "__guid": "dfecc4db-e171-491e-8c2f-20c833eeea03",
+      "__guid": "7472d9a0-b5f5-4e76-818c-69f3fd3142c4",
       "Flags": 0,
-      "Name": "TURRET SLOT",
+      "Name": "TurretSlot",
       "Position": "-100,0,0",
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "1a169fe6-8ac5-4a8f-afda-224bbd20ddae",
-          "BodyGroups": 18446744073709551615,
-          "CreateAttachments": false,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/tower-defense-kit/towerdefense_selection-a.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "RenderOptions": {
-            "GameLayer": true,
-            "OverlayLayer": false,
-            "BloomLayer": false,
-            "AfterUILayer": false
-          },
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.k.Tweening.Player.TweenPlayerComponent",
-          "__guid": "abaffd13-91b2-4354-9f68-d27c1979ba12",
-          "Delay": 0,
-          "Duration": 1,
-          "EasingType": "Linear",
-          "IsLooping": true,
-          "LoopCount": -1,
-          "LoopType": "PingPong",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Parameters": {
-            "_type": "component",
-            "component_id": "b0b3a908-ec59-4938-a2fd-88feeb5010d4",
-            "go": "dfecc4db-e171-491e-8c2f-20c833eeea03",
-            "component_type": "TweenScaleParameter"
-          },
-          "PlayOnAwake": true,
-          "TweenType": "Scale"
-        },
-        {
-          "__type": "Sandbox.k.Tweening.Player.Parameters.TweenScaleParameter",
-          "__guid": "b0b3a908-ec59-4938-a2fd-88feeb5010d4",
-          "From": "0.75,0.75,0.75",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "To": "1,1,1"
-        },
-        {
           "__type": "Sandbox.BoxCollider",
-          "__guid": "00e29bb7-6d09-4334-a0fa-b856d91baae8",
+          "__guid": "05bdbe8c-eaf8-4f01-b00e-bdbe9fed6eab",
           "Center": "0,0,25",
           "Friction": null,
           "IsTrigger": true,
@@ -725,8 +661,37 @@
         },
         {
           "__type": "Sandbox.Source.Features.Physics.Providers.TriggerProvider",
-          "__guid": "a4b80757-c446-441b-b1f8-9083630e1ed5",
+          "__guid": "d18e279e-346e-479c-b902-67f13a282fd4",
           "_component": {},
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Source.Features.Slots.Providers.SlotProvider",
+          "__guid": "4dba8b8b-f299-479b-a45c-668c62375857",
+          "_component": {
+            "CurrentMoney": 50,
+            "TextRenderer": {
+              "_type": "component",
+              "component_id": "4886d37e-6fe5-49fd-94c4-7a3627968262",
+              "go": "946b2719-56d5-4fbe-b038-d2aba74cf56c",
+              "component_type": "TextRenderer"
+            },
+            "States": [
+              {
+                "_type": "gameobject",
+                "go": "dfecc4db-e171-491e-8c2f-20c833eeea03"
+              },
+              {
+                "_type": "gameobject",
+                "go": "7aa1832c-a9fa-4451-99b7-c1c8b83f6f93"
+              }
+            ]
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -737,18 +702,19 @@
       ],
       "Children": [
         {
-          "__guid": "946b2719-56d5-4fbe-b038-d2aba74cf56c",
+          "__guid": "dfecc4db-e171-491e-8c2f-20c833eeea03",
           "Flags": 0,
-          "Name": "Text",
-          "Position": "-0.02522278,0,3",
-          "Rotation": "0,0.7045392,0,0.709665",
+          "Name": "State0",
           "Enabled": true,
           "Components": [
             {
-              "__type": "Sandbox.TextRenderer",
-              "__guid": "4886d37e-6fe5-49fd-94c4-7a3627968262",
-              "__version": 1,
-              "BlendMode": "Normal",
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "1a169fe6-8ac5-4a8f-afda-224bbd20ddae",
+              "BodyGroups": 18446744073709551615,
+              "CreateAttachments": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/tower-defense-kit/towerdefense_selection-a.vmdl",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -761,47 +727,14 @@
                 "BloomLayer": false,
                 "AfterUILayer": false
               },
-              "Scale": 0.3,
-              "TextAlignment": "Center",
-              "TextScope": {
-                "Text": "$ 30",
-                "TextColor": "1,1,1,1",
-                "FontName": "Poppins",
-                "FontSize": 64,
-                "FontWeight": 800,
-                "FontItalic": false,
-                "LineHeight": 1,
-                "LetterSpacing": 0,
-                "WordSpacing": 0,
-                "Outline": {
-                  "Enabled": true,
-                  "Size": 12,
-                  "Color": "0,0,0,1"
-                },
-                "Shadow": {
-                  "Enabled": false,
-                  "Size": 4,
-                  "Color": "0,0,0,1",
-                  "Offset": "4,4"
-                },
-                "OutlineUnder": {
-                  "Enabled": false,
-                  "Size": 4,
-                  "Color": "0,1,0,1"
-                },
-                "ShadowUnder": {
-                  "Enabled": false,
-                  "Size": 4,
-                  "Color": "0,0,0,1",
-                  "Offset": "4,4"
-                }
-              }
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
             },
             {
               "__type": "Sandbox.k.Tweening.Player.TweenPlayerComponent",
-              "__guid": "ecd91f86-facb-4f39-83fd-c8ed034f6e84",
+              "__guid": "abaffd13-91b2-4354-9f68-d27c1979ba12",
               "Delay": 0,
-              "Duration": 0.5,
+              "Duration": 1,
               "EasingType": "Linear",
               "IsLooping": true,
               "LoopCount": -1,
@@ -814,8 +747,8 @@
               "OnComponentUpdate": null,
               "Parameters": {
                 "_type": "component",
-                "component_id": "a26a782e-fb75-4b58-bb0e-7f5575208624",
-                "go": "946b2719-56d5-4fbe-b038-d2aba74cf56c",
+                "component_id": "b0b3a908-ec59-4938-a2fd-88feeb5010d4",
+                "go": "dfecc4db-e171-491e-8c2f-20c833eeea03",
                 "component_type": "TweenScaleParameter"
               },
               "PlayOnAwake": true,
@@ -823,8 +756,8 @@
             },
             {
               "__type": "Sandbox.k.Tweening.Player.Parameters.TweenScaleParameter",
-              "__guid": "a26a782e-fb75-4b58-bb0e-7f5575208624",
-              "From": "1,1,1",
+              "__guid": "b0b3a908-ec59-4938-a2fd-88feeb5010d4",
+              "From": "0.75,0.75,0.75",
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
               "OnComponentEnabled": null,
@@ -832,6 +765,141 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null,
               "To": "1,1,1"
+            }
+          ],
+          "Children": [
+            {
+              "__guid": "946b2719-56d5-4fbe-b038-d2aba74cf56c",
+              "Flags": 0,
+              "Name": "Text",
+              "Position": "-0.02522278,0,3",
+              "Rotation": "0,0.7045392,0,0.709665",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.TextRenderer",
+                  "__guid": "4886d37e-6fe5-49fd-94c4-7a3627968262",
+                  "__version": 1,
+                  "BlendMode": "Normal",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "RenderOptions": {
+                    "GameLayer": true,
+                    "OverlayLayer": false,
+                    "BloomLayer": false,
+                    "AfterUILayer": false
+                  },
+                  "Scale": 0.3,
+                  "TextAlignment": "Center",
+                  "TextScope": {
+                    "Text": "PRICE",
+                    "TextColor": "1,1,1,1",
+                    "FontName": "Poppins",
+                    "FontSize": 64,
+                    "FontWeight": 800,
+                    "FontItalic": false,
+                    "LineHeight": 1,
+                    "LetterSpacing": 0,
+                    "WordSpacing": 0,
+                    "Outline": {
+                      "Enabled": true,
+                      "Size": 12,
+                      "Color": "0,0,0,1"
+                    },
+                    "Shadow": {
+                      "Enabled": false,
+                      "Size": 4,
+                      "Color": "0,0,0,1",
+                      "Offset": "4,4"
+                    },
+                    "OutlineUnder": {
+                      "Enabled": false,
+                      "Size": 4,
+                      "Color": "0,1,0,1"
+                    },
+                    "ShadowUnder": {
+                      "Enabled": false,
+                      "Size": 4,
+                      "Color": "0,0,0,1",
+                      "Offset": "4,4"
+                    }
+                  }
+                },
+                {
+                  "__type": "Sandbox.k.Tweening.Player.TweenPlayerComponent",
+                  "__guid": "ecd91f86-facb-4f39-83fd-c8ed034f6e84",
+                  "Delay": 0,
+                  "Duration": 0.5,
+                  "EasingType": "Linear",
+                  "IsLooping": true,
+                  "LoopCount": -1,
+                  "LoopType": "PingPong",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "Parameters": {
+                    "_type": "component",
+                    "component_id": "a26a782e-fb75-4b58-bb0e-7f5575208624",
+                    "go": "946b2719-56d5-4fbe-b038-d2aba74cf56c",
+                    "component_type": "TweenScaleParameter"
+                  },
+                  "PlayOnAwake": true,
+                  "TweenType": "Scale"
+                },
+                {
+                  "__type": "Sandbox.k.Tweening.Player.Parameters.TweenScaleParameter",
+                  "__guid": "a26a782e-fb75-4b58-bb0e-7f5575208624",
+                  "From": "1,1,1",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "To": "1,1,1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "__guid": "7aa1832c-a9fa-4451-99b7-c1c8b83f6f93",
+          "Flags": 0,
+          "Name": "State1",
+          "Children": [
+            {
+              "__guid": "94b39363-76e4-451d-9531-742ed6d08dc4",
+              "Flags": 0,
+              "Name": "towerdefense_weapon-turret",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "Sandbox.Prop",
+                  "__guid": "696b355e-de3d-4bdb-bb1d-372c3eb30780",
+                  "BodyGroups": 18446744073709551615,
+                  "Health": 0,
+                  "IsStatic": true,
+                  "MaterialGroup": null,
+                  "Model": "models/tower-defense-kit/towerdefense_weapon-turret.vmdl",
+                  "OnComponentDestroy": null,
+                  "OnComponentDisabled": null,
+                  "OnComponentEnabled": null,
+                  "OnComponentFixedUpdate": null,
+                  "OnComponentStart": null,
+                  "OnComponentUpdate": null,
+                  "OnPropBreak": null,
+                  "OnPropTakeDamage": null,
+                  "StartAsleep": false,
+                  "Tint": "1,1,1,1"
+                }
+              ]
             }
           ]
         }
@@ -1412,7 +1480,8 @@
     "kenneynl.towerdefenseselectiona#81512",
     "kenneynl.towerdefensetilespawnend#81435",
     "kenneynl.towerdefensetilestraight#81430",
-    "kenneynl.towerdefensetowersquarebuildc#81395"
+    "kenneynl.towerdefensetowersquarebuildc#81395",
+    "kenneynl.towerdefenseweaponturret#81369"
   ],
   "__version": 2
 }

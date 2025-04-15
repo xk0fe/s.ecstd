@@ -23,6 +23,7 @@ public class PhysicsTriggerSystem : SystemBase
 			entity.RemoveComponent<RecalculateTag>();
 			ref var component = ref entity.GetComponent<TriggerComponent>();
 			if ( component.Triggers == null ) continue;
+
 			foreach ( var trigger in component.Triggers )
 			{
 				switch ( trigger.State )
@@ -44,27 +45,15 @@ public class PhysicsTriggerSystem : SystemBase
 
 	private void OnTriggerStart( int entity, TriggerData data )
 	{
-		if ( entity.HasComponent<OnTriggerEnterComponent>() )
-		{
-			ref var triggerStart = ref entity.GetComponent<OnTriggerEnterComponent>();
-			triggerStart.Triggers ??= new Queue<Collider>();
-			triggerStart.Triggers.Enqueue( data.Other );
-			return;
-		}
-
-		entity.SetComponent( new OnTriggerEnterComponent { Triggers = new Queue<Collider>( new[] { data.Other } ) } );
+		PhysicsStorage.GetTriggerEnterQueue( entity ).Enqueue( data.Other );
+		PhysicsStorage.AddToTriggerStay( entity, data.Other.GameObject );
+		entity.SetComponent( new OnTriggerEnterComponent() );
 	}
 
 	private void OnTriggerExit( int entity, TriggerData data )
 	{
-		if ( entity.HasComponent<OnTriggerExitComponent>() )
-		{
-			ref var triggerExit = ref entity.GetComponent<OnTriggerExitComponent>();
-			triggerExit.Triggers ??= new Queue<Collider>();
-			triggerExit.Triggers.Enqueue( data.Other );
-			return;
-		}
-
-		entity.SetComponent( new OnTriggerExitComponent { Triggers = new Queue<Collider>( new[] { data.Other } ) } );
+		PhysicsStorage.GetTriggerExitQueue( entity ).Enqueue( data.Other );
+		PhysicsStorage.RemoveFromTriggerStay( entity, data.Other.GameObject );
+		entity.SetComponent( new OnTriggerExitComponent() );
 	}
 }
