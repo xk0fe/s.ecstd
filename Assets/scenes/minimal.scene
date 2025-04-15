@@ -261,14 +261,20 @@
           "__type": "Sandbox.Source.Features.Enemy.Providers.EnemySpawnerProvider",
           "__guid": "d712a12c-cb7c-41bd-94a8-cbdee8676c9e",
           "_component": {
-            "SpawnCount": 0,
-            "SpawnRadius": 0,
-            "SpawnDelay": 0,
-            "SpawnPosition": null,
-            "SpawnPrefab": null,
+            "SpawnCount": 1,
+            "SpawnRadius": 25,
+            "SpawnDelay": 5,
+            "SpawnPosition": {
+              "_type": "gameobject",
+              "go": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3"
+            },
+            "SpawnPrefab": {
+              "_type": "gameobject",
+              "prefab": "prefabs/testenemy.prefab"
+            },
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 9846.641
+              "Relative": 6842.1245
             }
           },
           "OnComponentDestroy": null,
@@ -698,6 +704,26 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Source.Features.Turrets.Providers.TurretProvider",
+          "__guid": "b8e2aa87-b506-4270-9bf0-c3d21e147212",
+          "__enabled": false,
+          "_component": {
+            "TurretView": {
+              "_type": "gameobject",
+              "go": "94b39363-76e4-451d-9531-742ed6d08dc4"
+            },
+            "ShootPoint": "0,0,0",
+            "BulletSpawnPoint": null,
+            "Projectile": null
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ],
       "Children": [
@@ -988,8 +1014,38 @@
               "OnPropTakeDamage": null,
               "StartAsleep": false,
               "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "Sandbox.Source.Features.Turrets.Providers.TurretProvider",
+              "__guid": "313ccb8e-0c05-4555-9360-a418a20c4b76",
+              "_component": {
+                "TurretView": {
+                  "_type": "gameobject",
+                  "go": "01333972-56db-43b3-8e7e-5cfd6c7bb7dc"
+                },
+                "ShootPoint": "0,-35,35",
+                "BulletSpawnPoint": {
+                  "_type": "gameobject",
+                  "go": "e9a10d49-dbe6-4c07-962f-697623f72608"
+                },
+                "Projectile": "data/cannonbalprojectile.prjtl"
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
             }
           ]
+        },
+        {
+          "__guid": "e9a10d49-dbe6-4c07-962f-697623f72608",
+          "Flags": 0,
+          "Name": "Object",
+          "Position": "0,-56.07098,100.6483",
+          "Rotation": "0,0,-0.7071068,0.7071068",
+          "Enabled": true
         }
       ]
     },

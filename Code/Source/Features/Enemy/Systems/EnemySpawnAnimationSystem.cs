@@ -22,11 +22,11 @@ public class EnemySpawnAnimationSystem : SystemBase
 			entity.SetComponent( new EnemyAnimatedTag() );
 			var gameObjectComponent = entity.GetComponent<GameObjectComponent>();
 			var gameObject = gameObjectComponent.Value;
-			TweenFactory.Scale( gameObject, .25f, Vector3.One * .25f, Vector3.One, EasingType.QuadraticOut );
+			Tweener.Scale( gameObject, .25f, Vector3.One * .25f, Vector3.One, EasingType.QuadraticOut );
 			if ( gameObject.Children.Count == 0 ) return;
 			var child = gameObject.Children[0];
 			if ( !child.IsValid() ) return;
-			TweenFactory.LocalPosition( child, .75f, child.LocalPosition + Vector3.Up * 5f,
+			Tweener.LocalPosition( child, .75f, child.LocalPosition + Vector3.Up * 5f,
 				child.LocalPosition, EasingType.QuadraticInOut, loopType: LoopType.PingPong );
 		}
 	}

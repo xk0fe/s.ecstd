@@ -20,12 +20,6 @@ public class ScaleTween : TweenBase
 
 	protected override async Task Play(bool forward)
 	{
-		if ( _duration <= 0 )
-		{
-			_target.WorldScale = forward ? _to : _from;
-			return;
-		}
-		
 		TimeSince timeSince = 0;
 		var easingFunc = TweenExtensions.EasingFunction( _easing );
 
@@ -41,7 +35,11 @@ public class ScaleTween : TweenBase
 			_target.WorldScale = Vector3.Lerp(start, end, easingFunc(progress));
 			await GameTask.Yield();
 		}
-
+	}
+	
+	protected override void Complete( bool forward )
+	{
+		var end = forward ? _to : _from;
 		_target.WorldScale = end;
 	}
 }

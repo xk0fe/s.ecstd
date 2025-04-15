@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Sandbox.k.Tweening.Enums;
 
@@ -6,6 +7,11 @@ namespace Sandbox.k.Tweening;
 
 public abstract class TweenBase
 {
+	/// <summary>
+	/// Called when the tween or tween loop is complete.
+	/// </summary>
+	public Action OnComplete;
+
 	protected readonly GameObject _target;
 	protected readonly float _duration;
 	protected readonly EasingType _easing;
@@ -14,7 +20,7 @@ public abstract class TweenBase
 	protected readonly int _loopCount;
 	protected readonly CancellationToken _token;
 
-	protected TweenBase( GameObject target, float duration, EasingType easing, 
+	protected TweenBase( GameObject target, float duration, EasingType easing,
 		float delay, LoopType loopType, int loopCount,
 		CancellationToken token )
 	{
@@ -29,33 +35,43 @@ public abstract class TweenBase
 
 	public async Task Run()
 	{
-		int currentLoop = 0;
+		if ( _delay > 0 ) await GameTask.DelaySeconds( _delay, _token );
 
-		while (_loopCount < 0 || currentLoop < _loopCount)
+		// true by default, false if reversed
+		var direction = _loopType != LoopType.Reverse;
+		if ( _duration == 0 )
 		{
-			if (_token.IsCancellationRequested)
+			Complete( forward: direction );
+			OnComplete?.Invoke();
+			return;
+		}
+
+		var currentLoop = 0;
+
+		while ( _loopCount < 0 || currentLoop < _loopCount )
+		{
+			if ( !Game.IsPlaying ) break;
+			if ( _token.IsCancellationRequested )
 				break;
 
-			if (_delay > 0) await GameTask.DelaySeconds(_delay, _token);
+			await Play( forward: direction );
+			Complete( forward: direction );
 
-			await Play(forward: true);
-
-			if (_token.IsCancellationRequested)
+			if ( _token.IsCancellationRequested )
 				break;
 
-			switch ( _loopType )
-			{
-				case LoopType.None:
-					return;
-				case LoopType.Reverse:
-				case LoopType.PingPong:
-					await Play( forward: false );
-					break;
-			}
+			if ( _loopType == LoopType.None )
+				break;
+
+			if ( _loopType == LoopType.PingPong )
+				direction = !direction;
 
 			currentLoop++;
 		}
+
+		OnComplete?.Invoke();
 	}
 
-	protected abstract Task Play(bool forward);
+	protected abstract Task Play( bool forward );
+	protected abstract void Complete( bool forward );
 }

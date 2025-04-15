@@ -10,6 +10,6 @@ public class TweenScaleParameter : TweenParameter
 	public override Tween CreateTween(GameObject target, float duration, EasingType easing,
 		float delay = 0f, LoopType loopType = LoopType.None, int loopCount = -1)
 	{
-		return TweenFactory.Scale( target, duration, From, To, easing, delay, loopType, loopCount );
+		return Tweener.Scale( target, duration, From, To, easing, delay, loopType, loopCount );
 	}
 }

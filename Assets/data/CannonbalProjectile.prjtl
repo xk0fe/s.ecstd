@@ -1,0 +1,13 @@
+{
+  "Prefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/cannonball.prefab"
+  },
+  "ImpulseForce": 1000,
+  "Mass": 30,
+  "Radius": 30,
+  "Damage": 5,
+  "Deviation": 1.2,
+  "__references": [],
+  "__version": 0
+}

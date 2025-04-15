@@ -1,8 +1,8 @@
 {
-  "Title": "k.DependencyLocator",
+  "Title": "k.DlContainer",
   "Type": "library",
   "Org": "kfe",
-  "Ident": "kdependencylocator",
+  "Ident": "kdlcontainer",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,

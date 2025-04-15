@@ -4,7 +4,7 @@ using Sandbox.k.Tweening.Tweens;
 
 namespace Sandbox.k.Tweening;
 
-public class TweenFactory
+public class Tweener
 {
 	public static Tween Scale(GameObject target, float duration, Vector3 from, Vector3 to, EasingType easing,
 		float delay = 0f, LoopType loopType = LoopType.None, int loopCount = -1)
@@ -27,6 +27,14 @@ public class TweenFactory
 	{
 		var cts = new CancellationTokenSource();
 		var tween = new LocalPositionTween(target, duration, from, to, easing, delay, loopType, loopCount, cts.Token);
+		return new Tween(tween, cts).Start();
+	}
+	
+	public static Tween ShakePosition(GameObject target, float duration, float power, EasingType easing,
+		float delay = 0f, LoopType loopType = LoopType.None, int loopCount = -1)
+	{
+		var cts = new CancellationTokenSource();
+		var tween = new ShakePositionTween(target, duration, power, easing, delay, loopType, loopCount, cts.Token);
 		return new Tween(tween, cts).Start();
 	}
 }
