@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Sandbox.k.Tweening.Enums;
 using Sandbox.k.Tweening.Extensions;
@@ -11,8 +10,8 @@ public class ShakePositionTween : TweenBase
 	private readonly float _power;
 
 	public ShakePositionTween(GameObject target, float duration, float power, EasingType easing,
-		float delay, LoopType loopType, int loopCount, CancellationToken token)
-		: base(target, duration, easing, delay, loopType, loopCount, token)
+		float delay, LoopType loopType, int loopCount, string id = null)
+		: base(target, duration, easing, delay, loopType, loopCount, id )
 	{
 		_power = power;
 	}

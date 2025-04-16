@@ -11,18 +11,21 @@ public abstract class TweenBase
 	/// Called when the tween or tween loop is complete.
 	/// </summary>
 	public Action OnComplete;
-
+	public string Id { get; private set; }
+	public GameObject Target => _target;
+	
 	protected readonly GameObject _target;
 	protected readonly float _duration;
 	protected readonly EasingType _easing;
 	protected readonly float _delay;
 	protected readonly LoopType _loopType;
 	protected readonly int _loopCount;
-	protected readonly CancellationToken _token;
+	protected CancellationToken _token;
+
+	private bool _lastDirection;
 
 	protected TweenBase( GameObject target, float duration, EasingType easing,
-		float delay, LoopType loopType, int loopCount,
-		CancellationToken token )
+		float delay, LoopType loopType, int loopCount, string id = null )
 	{
 		_target = target;
 		_duration = duration;
@@ -30,7 +33,8 @@ public abstract class TweenBase
 		_delay = delay;
 		_loopType = loopType;
 		_loopCount = loopCount;
-		_token = token;
+		Id = id ?? Guid.NewGuid().ToString();
+		TweenManager.Register( this );
 	}
 
 	public async Task Run()
@@ -38,10 +42,10 @@ public abstract class TweenBase
 		if ( _delay > 0 ) await GameTask.DelaySeconds( _delay, _token );
 
 		// true by default, false if reversed
-		var direction = _loopType != LoopType.Reverse;
+		_lastDirection = _loopType != LoopType.Reverse;
 		if ( _duration == 0 )
 		{
-			Complete( forward: direction );
+			Complete( forward: _lastDirection );
 			OnComplete?.Invoke();
 			return;
 		}
@@ -54,8 +58,8 @@ public abstract class TweenBase
 			if ( _token.IsCancellationRequested )
 				break;
 
-			await Play( forward: direction );
-			Complete( forward: direction );
+			await Play( forward: _lastDirection );
+			Complete( forward: _lastDirection );
 
 			if ( _token.IsCancellationRequested )
 				break;
@@ -64,7 +68,7 @@ public abstract class TweenBase
 				break;
 
 			if ( _loopType == LoopType.PingPong )
-				direction = !direction;
+				_lastDirection = !_lastDirection;
 
 			currentLoop++;
 		}
@@ -72,6 +76,18 @@ public abstract class TweenBase
 		OnComplete?.Invoke();
 	}
 
+	public void Complete()
+	{
+		Complete( forward: _lastDirection );
+		OnComplete?.Invoke();
+	}
+	
+	public void SetCancellationToken( CancellationToken token )
+	{
+		_token = token;
+	}
+
 	protected abstract Task Play( bool forward );
+
 	protected abstract void Complete( bool forward );
 }

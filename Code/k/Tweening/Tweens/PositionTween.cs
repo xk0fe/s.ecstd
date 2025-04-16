@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Sandbox.k.Tweening.Enums;
 using Sandbox.k.Tweening.Extensions;
 
@@ -11,8 +10,8 @@ public class PositionTween : TweenBase
 	private readonly Vector3 _to;
 
 	public PositionTween( GameObject target, float duration, Vector3 from, Vector3 to, EasingType easing,
-		float delay, LoopType loopType, int loopCount, CancellationToken token )
-		: base( target, duration, easing, delay, loopType, loopCount, token )
+		float delay, LoopType loopType, int loopCount, string id = null )
+		: base( target, duration, easing, delay, loopType, loopCount, id )
 	{
 		_from = from;
 		_to = to;

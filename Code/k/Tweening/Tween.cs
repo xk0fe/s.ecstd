@@ -29,6 +29,10 @@ public class Tween
 		return this;
 	}
 
-	public void Kill() => _cts?.Cancel();
+	public void Kill(bool complete = false)
+	{
+		_cts?.Cancel();
+		if (complete) _tweenBase.Complete();
+	}
 	public bool IsCompleted => _task?.IsCompleted ?? true;
 }

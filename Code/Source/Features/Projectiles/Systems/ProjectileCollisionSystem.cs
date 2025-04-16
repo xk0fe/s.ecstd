@@ -1,6 +1,8 @@
 ﻿using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
+using Sandbox.k.Tweening;
+using Sandbox.k.Tweening.Extensions;
 using Sandbox.Source.Features.Projectiles.Components;
 
 namespace Sandbox.Source.Features.Projectiles.Systems;
@@ -34,7 +36,10 @@ public class ProjectileCollisionSystem : SystemBase
 
 			if ( tr.Hit )
 			{
-				Log.Info( $"Hit {entity} with {tr.GameObject.Name}" );
+				var target = tr.GameObject;
+				TweenManager.KillByGameObject( target, true );
+				target.PunchScale( .25f, Vector3.One, 1, 1 );
+				Log.Info( $"Hit {entity} with {target.Name}" );
 			}
 		}
 	}

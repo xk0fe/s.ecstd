@@ -2,7 +2,7 @@
 
 namespace Sandbox.k.Tweening.Extensions;
 
-public static class TweenFactoryExtensions
+public static class TweenerExtensions
 {
 	public static Tween Scale( this GameObject target, float duration, Vector3 from, Vector3 to,
 		EasingType easing = EasingType.Linear, float delay = 0f, LoopType loopType = LoopType.None,
@@ -30,5 +30,12 @@ public static class TweenFactoryExtensions
 		int loopCount = -1 )
 	{
 		return Tweener.ShakePosition( target, duration, power, easing, delay, loopType, loopCount );
+	}
+	
+	public static Tween PunchScale( this GameObject target, float duration, Vector3 punch, int vibrato, float elasticity,
+		EasingType easing = EasingType.Linear, float delay = 0f, LoopType loopType = LoopType.None,
+		int loopCount = -1 )
+	{
+		return Tweener.PunchScale( target, duration, punch, vibrato, elasticity, easing, delay, loopType, loopCount );
 	}
 }
