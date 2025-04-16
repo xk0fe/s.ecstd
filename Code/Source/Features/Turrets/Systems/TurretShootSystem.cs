@@ -1,8 +1,11 @@
-﻿using Sandbox.k.ECS.Core;
+﻿using System;
+using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
+using Sandbox.k.Tweening;
 using Sandbox.k.Tweening.Enums;
 using Sandbox.k.Tweening.Extensions;
+using Sandbox.Source.Features.Common.Components;
 using Sandbox.Source.Features.Projectiles.Components;
 using Sandbox.Source.Features.Turrets.Components;
 
@@ -12,7 +15,8 @@ public class TurretShootSystem : SystemBase
 {
 	private EntityFilter _filter = new EntityFilter( World.Default )
 		.With<TurretComponent>()
-		.Without<TurretCooldown>();
+		.Without<TurretCooldown>()
+		.Without<TurretInactive>();
 
 	public override void Update( float deltaTime )
 	{
@@ -24,8 +28,11 @@ public class TurretShootSystem : SystemBase
 			var view = turretComponent.TurretView;
 			if ( view.IsValid() )
 			{
-				view.ShakePosition( .5f, 5 );
-				view.Scale( .25f, Vector3.One * .5f, Vector3.One * .65f, EasingType.QuadraticOut );
+				TweenManager.KillByGameObject( view );
+				var randomShake = Random.Shared.Float( 1f, 5f );
+				view.ShakePosition( .25f, randomShake );
+				var originalScale = view.WorldScale;
+				view.Scale( .25f, originalScale * .75f, originalScale, EasingType.QuadraticOut );
 			}
 
 			SpawnProjectile( turretComponent );
@@ -33,27 +40,29 @@ public class TurretShootSystem : SystemBase
 		}
 	}
 
-	private void SpawnProjectile( TurretComponent turret )
+	private void SpawnProjectile( TurretComponent component )
 	{
-		var projectile = turret.Projectile;
-		var spawnPosition = turret.ShootPoint;
+		var projectile = component.Projectile;
+		var turret = component.Turret;
+		var spawnPosition = component.ShootPoint;
 		var view = projectile.Prefab.Clone( spawnPosition );
 
 		var originalScale = view.WorldScale;
 		view.Scale( .1f, originalScale * .75f, originalScale ); 
 		
-		var direction = turret.BulletSpawnPoint.WorldRotation.Forward;
+		var direction = component.TurretView.WorldRotation.Forward;
 		
 		var entity = World.Default.CreateEntity();
 		entity.SetComponent( new ProjectileComponent
 		{
-			Position = spawnPosition + turret.TurretView.WorldPosition,
-			Velocity = direction * (projectile.ImpulseForce / projectile.Deviation),
+			Position = spawnPosition + component.TurretView.WorldPosition,
+			Velocity = direction * (turret.ImpulseForce / projectile.Deviation),
 			Radius = projectile.Radius,
 			Damage = projectile.Damage,
-			Impulse = projectile.ImpulseForce,
+			Impulse = turret.ImpulseForce,
 			Scene = view.Scene,
+			AllowedTags = component.EnemyTags,
 		} );
-		entity.SetComponent( new ProjectileViewComponent { View = view, } );
+		entity.SetComponent( new GameObjectComponent() { Value = view, } );
 	}
 }

@@ -10,5 +10,6 @@ public class TurretFeature : FeatureBase
 	{
 		AddSystem( new TurretCooldownSystem() );
 		AddSystem( new TurretShootSystem() );
+		AddSystem( new TurretInactiveSystem() );
 	}
 }

@@ -4,7 +4,6 @@
 public class ProjectileResource : GameResource
 {
 	[Property] public GameObject Prefab { get; set; }
-	[Property] public float ImpulseForce { get; set; }
 	[Property] public float Mass { get; set; }
 	[Property] public float Radius { get; set; }
 	[Property] public float Damage { get; set; }

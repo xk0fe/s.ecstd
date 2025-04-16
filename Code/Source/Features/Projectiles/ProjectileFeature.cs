@@ -11,5 +11,7 @@ public class ProjectileFeature : FeatureBase
 		AddSystem( new ProjectileMovementSystem() );
 		AddSystem( new ProjectileCollisionSystem() );
 		AddSystem( new ProjectileViewSystem() );
+		AddSystem( new ProjectileLifeTimeSystem() );
+		AddSystem( new ProjectileCleanupSystem() );
 	}
 }

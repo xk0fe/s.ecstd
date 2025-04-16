@@ -8,4 +8,5 @@ public struct ProjectileComponent
 	public float Radius;
 	public float Damage;
 	public Scene Scene;
+	public string[] AllowedTags;
 }

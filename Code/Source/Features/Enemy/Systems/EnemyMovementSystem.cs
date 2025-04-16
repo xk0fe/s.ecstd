@@ -9,8 +9,9 @@ namespace Sandbox.Source.Features.Enemy.Systems;
 public class EnemyMovementSystem : SystemBase
 {
 	private EntityFilter _entityFilter = new EntityFilter( World.Default )
-		.With<EnemyComponent>()
-		.With<PositionComponent>();
+		.With<EnemyTag>()
+		.With<PositionComponent>()
+		.With<EnemyFollowPathTag>();
 
 	private const float MOVEMENT_SPEED = 25f;
 	private readonly Vector3 _forward = Vector3.Left;

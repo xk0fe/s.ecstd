@@ -69,6 +69,7 @@ public class TweenPlayerComponent : Component
 			case TweenType.Alpha:
 				break;
 			case TweenType.ShakePosition:
+				Parameters = GameObject.AddComponent<TweenShakePositionParameter>();
 				break;
 			case TweenType.ShakeRotation:
 				break;
@@ -79,6 +80,9 @@ public class TweenPlayerComponent : Component
 			case TweenType.ShakeFOV:
 				break;
 			case TweenType.ShakeAlpha:
+				break;
+			case TweenType.PunchScale:
+				Parameters = GameObject.AddComponent<TweenPunchScaleParameter>();
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();

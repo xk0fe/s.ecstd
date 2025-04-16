@@ -9,5 +9,6 @@ public class CommonFeature : FeatureBase
 	public CommonFeature( DlContainer container )
 	{
 		AddSystem( new GameObjectPositionSystem() );
+		AddSystem( new DelayedDestroySystem() );
 	}
 }

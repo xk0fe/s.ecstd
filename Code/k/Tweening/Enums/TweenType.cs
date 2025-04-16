@@ -13,5 +13,6 @@ public enum TweenType {
 	ShakeScale,
 	ShakeColor,
 	ShakeFOV,
-	ShakeAlpha
+	ShakeAlpha,
+	PunchScale,
 }

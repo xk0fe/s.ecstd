@@ -6,28 +6,32 @@ using Sandbox.Source.Features.Projectiles.Components;
 
 namespace Sandbox.Source.Features.Projectiles.Systems;
 
-public class ProjectileViewSystem : SystemBase
+public class ProjectileCleanupSystem : SystemBase
 {
 	private EntityFilter _filter = new EntityFilter( World.Default )
 		.With<ProjectileComponent>()
-		.With<GameObjectComponent>();
+		.With<DestroyTag>();
 
+	private EntityFilter _viewFilter = new EntityFilter( World.Default )
+		.With<GameObjectComponent>()
+		.With<DestroyTag>();
+	
 	public override void Update( float deltaTime )
 	{
 		base.Update( deltaTime );
-		foreach ( var entity in _filter )
+
+		foreach ( var entity in _viewFilter )
 		{
 			ref var viewComponent = ref entity.GetComponent<GameObjectComponent>();
-			var view = viewComponent.Value;
-			if ( !view.IsValid() )
+			if ( viewComponent.Value.IsValid() )
 			{
-				World.Default.DestroyEntity( entity );
-				continue;
+				viewComponent.Value.Destroy();
 			}
-
-			ref var projectileComponent = ref entity.GetComponent<ProjectileComponent>();
-
-			view.WorldPosition = projectileComponent.Position;
+		}
+		
+		foreach ( var entity in _filter )
+		{
+			World.Default.DestroyEntity( entity );
 		}
 	}
 }

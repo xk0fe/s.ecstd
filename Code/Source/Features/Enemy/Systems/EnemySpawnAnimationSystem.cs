@@ -11,7 +11,7 @@ namespace Sandbox.Source.Features.Enemy.Systems;
 public class EnemySpawnAnimationSystem : SystemBase
 {
 	private EntityFilter _filter = new EntityFilter( World.Default )
-		.With<EnemyComponent>()
+		.With<EnemyTag>()
 		.With<GameObjectComponent>()
 		.Without<EnemyAnimatedTag>();
 

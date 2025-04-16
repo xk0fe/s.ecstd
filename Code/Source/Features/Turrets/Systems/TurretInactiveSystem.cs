@@ -5,21 +5,22 @@ using Sandbox.Source.Features.Turrets.Components;
 
 namespace Sandbox.Source.Features.Turrets.Systems;
 
-public class TurretCooldownSystem : SystemBase
+public class TurretInactiveSystem : SystemBase
 {
 	private EntityFilter _filter = new EntityFilter( World.Default )
-		.With<TurretCooldown>()
-		.Without<TurretInactive>();
+		.With<TurretInactive>();
 
 	public override void Update( float deltaTime )
 	{
 		base.Update( deltaTime );
 		foreach ( var entity in _filter )
 		{
-			ref var turretCooldown = ref entity.GetComponent<TurretCooldown>();
-			turretCooldown.Cooldown -= deltaTime;
-
-			if ( turretCooldown.Cooldown <= 0f ) entity.RemoveComponent<TurretCooldown>();
+			ref var turretInactive = ref entity.GetComponent<TurretInactive>();
+			turretInactive.Since += deltaTime;
+			if ( turretInactive.Since > turretInactive.Delay )
+			{
+				entity.RemoveComponent<TurretInactive>();
+			}
 		}
 	}
 }
