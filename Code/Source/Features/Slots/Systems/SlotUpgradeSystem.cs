@@ -23,14 +23,14 @@ public class SlotUpgradeSystem : SystemBase
 			for ( var i = 0; i < component.States.Length; i++ )
 			{
 				var state = component.States[i];
-				if ( state.Enabled )
+				if ( state.IsActive )
 				{
 					enabledState = i;
-					state.Enabled = false;
+					state.SetActive( false, component.Collider );
 				}
 				else if ( enabledState + 1 == i )
 				{
-					state.Enabled = true;
+					state.SetActive( true, component.Collider );
 				}
 			}
 		}

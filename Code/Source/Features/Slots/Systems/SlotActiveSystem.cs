@@ -17,7 +17,6 @@ public class SlotActiveSystem : SystemBase
 		base.Update( deltaTime );
 		foreach ( var entity in _filter )
 		{
-			Log.Info( "taking money" );
 			ref var component = ref entity.GetComponent<SlotComponent>();
 
 			entity.SetComponent( new SlotUpdateTag() );

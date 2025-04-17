@@ -1,13 +1,16 @@
 ﻿using System;
+using Sandbox.k.Configs;
 using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
 using Sandbox.k.Tweening;
 using Sandbox.k.Tweening.Enums;
 using Sandbox.k.Tweening.Extensions;
+using Sandbox.Source.Configs;
 using Sandbox.Source.Features.Common.Components;
 using Sandbox.Source.Features.Projectiles.Components;
 using Sandbox.Source.Features.Turrets.Components;
+using Sandbox.Source.Features.Turrets.Configs;
 
 namespace Sandbox.Source.Features.Turrets.Systems;
 
@@ -21,6 +24,8 @@ public class TurretShootSystem : SystemBase
 	public override void Update( float deltaTime )
 	{
 		base.Update( deltaTime );
+		var config = Config.Get<TurretConfig>( ConfigAliases.TURRET_CONFIG );
+		Log.Info(config.Turrets[0].Name);
 		foreach ( var entity in _filter )
 		{
 			ref var turretComponent = ref entity.GetComponent<TurretComponent>();

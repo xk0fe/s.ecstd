@@ -5,7 +5,7 @@
   "Ident": "ecstd",
   "Schema": 1,
   "IncludeSourceFiles": true,
-  "Resources": "Configs\n",
+  "Resources": "configs\n",
   "PackageReferences": [],
   "EditorReferences": null,
   "Mounts": null,

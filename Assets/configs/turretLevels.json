@@ -1,0 +1,106 @@
+{
+  "turrets": [
+    {
+      "id": "basic_turret",
+      "name": "Basic Turret",
+      "baseCost": 100,
+      "description": "Standard turret with moderate fire rate and damage.",
+      "stats": {
+        "range": 5,
+        "damage": 10,
+        "fireRate": 1.0
+      },
+      "upgrades": [
+        {
+          "id": "range_boost",
+          "name": "Extended Barrel",
+          "cost": 75,
+          "description": "Increases range by 2 units.",
+          "modifiers": {
+            "range": 2
+          }
+        },
+        {
+          "id": "damage_boost",
+          "name": "High-Caliber Ammo",
+          "cost": 100,
+          "description": "Increases damage by 5.",
+          "modifiers": {
+            "damage": 5
+          }
+        },
+        {
+          "id": "rapid_fire",
+          "name": "Rapid Fire Module",
+          "cost": 150,
+          "description": "Increases fire rate by 50%.",
+          "modifiers": {
+            "fireRate": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "sniper_turret",
+      "name": "Sniper Turret",
+      "baseCost": 200,
+      "description": "Long-range turret with high damage but slow fire rate.",
+      "stats": {
+        "range": 10,
+        "damage": 40,
+        "fireRate": 0.5
+      },
+      "upgrades": [
+        {
+          "id": "super_scope",
+          "name": "Precision Scope",
+          "cost": 120,
+          "description": "Increases range by 3.",
+          "modifiers": {
+            "range": 3
+          }
+        },
+        {
+          "id": "piercing_rounds",
+          "name": "Piercing Rounds",
+          "cost": 180,
+          "description": "Increases damage by 15.",
+          "modifiers": {
+            "damage": 15
+          }
+        }
+      ]
+    },
+    {
+      "id": "flame_turret",
+      "name": "Flame Turret",
+      "baseCost": 150,
+      "description": "Close-range turret that deals damage over time.",
+      "stats": {
+        "range": 3,
+        "damage": 5,
+        "fireRate": 2.0
+      },
+      "upgrades": [
+        {
+          "id": "fuel_efficiency",
+          "name": "Fuel Efficiency",
+          "cost": 90,
+          "description": "Improves fire rate by 25%.",
+          "modifiers": {
+            "fireRate": 0.25
+          }
+        },
+        {
+          "id": "burn_duration",
+          "name": "Longer Burn",
+          "cost": 130,
+          "description": "Increases burn duration for damage over time.",
+          "modifiers": {
+            "burnDuration": 2
+          }
+        }
+      ]
+    }
+  ]
+}
