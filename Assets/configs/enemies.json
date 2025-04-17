@@ -1,0 +1,44 @@
+{
+  "enemies": [
+    {
+      "id": "basic_ufo",
+      "name": "Basic UFO",
+      "speed": 100,
+      "stats": {
+        "range": 5,
+        "damage": 10,
+        "fireRate": 1.0
+      }
+    },
+    {
+      "id": "fast_ufo",
+      "name": "Fast UFO",
+      "speed": 180,
+      "stats": {
+        "range": 4,
+        "damage": 8,
+        "fireRate": 1.5
+      }
+    },
+    {
+      "id": "tank_ufo",
+      "name": "Tank UFO",
+      "speed": 60,
+      "stats": {
+        "range": 6,
+        "damage": 20,
+        "fireRate": 0.6
+      }
+    },
+    {
+      "id": "sniper_ufo",
+      "name": "Sniper UFO",
+      "speed": 80,
+      "stats": {
+        "range": 12,
+        "damage": 15,
+        "fireRate": 0.8
+      }
+    }
+  ]
+}

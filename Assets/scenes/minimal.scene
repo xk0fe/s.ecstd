@@ -241,6 +241,9 @@
         {
           "__type": "Sandbox.Source.Boot",
           "__guid": "09e20f6a-a8db-4af9-a2e9-110f91f2cffa",
+          "_resources": [
+            "data/enemydatabase.npcdb"
+          ],
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
@@ -274,7 +277,7 @@
             },
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 6006.7505
+              "Relative": 3814.483
             }
           },
           "OnComponentDestroy": null,

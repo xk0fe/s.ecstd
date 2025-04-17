@@ -1,9 +1,11 @@
-﻿using Sandbox.k.ECS.Core;
+﻿using Sandbox.k.DependencyLocator;
+using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
 using Sandbox.k.ECS.Game.Components;
 using Sandbox.Source.Features.Common.Components;
 using Sandbox.Source.Features.Enemy.Components;
+using Sandbox.Source.Features.Enemy.Resources;
 using Sandbox.Source.Features.Physics.Providers;
 
 namespace Sandbox.Source.Features.Enemy.Systems;
@@ -14,6 +16,13 @@ public class EnemySpawnerSystem : SystemBase
 		.With<EnemySpawnerComponent>()
 		.With<InvokeComponent>()
 		.With<EnemySpawnerActiveTag>();
+
+	private EnemyDatabase _enemyDatabase;
+	
+	public EnemySpawnerSystem( DlContainer container )
+	{
+		_enemyDatabase = container.Get<EnemyDatabase>();
+	}
 
 	public override void Update( float deltaTime )
 	{

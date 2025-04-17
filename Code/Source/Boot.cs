@@ -11,10 +11,18 @@ namespace Sandbox.Source;
 
 public class Boot : InitializerBase
 {
+	[Property] private List<GameResource> _resources { get; set; } = new List<GameResource>();
+	
 	protected override void OnAwake()
 	{
 		var container = new DlContainer()
 			.Register<TestStorage>();
+
+		foreach ( var resource in _resources )
+		{
+			container.Register( resource );
+		}
+		
 		AddFeature( new CommonFeature( container ) );
 		// AddFeature( new PhysicsFeature( container ) );
 
