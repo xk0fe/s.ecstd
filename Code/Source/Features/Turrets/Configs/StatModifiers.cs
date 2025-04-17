@@ -6,6 +6,5 @@ public class StatModifiers
 {
 	[JsonPropertyName("range")] public float Range { get; set; }
 	[JsonPropertyName("damage")] public float Damage { get; set; }
-	[JsonPropertyName("fireRate")] public float FireRate { get; set; }
-	[JsonPropertyName("burnDuration")] public float BurnDuration { get; set; }
+	[JsonPropertyName("speed")] public float Speed { get; set; }
 }

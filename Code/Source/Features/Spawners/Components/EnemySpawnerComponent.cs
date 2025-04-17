@@ -6,7 +6,7 @@ public struct EnemySpawnerComponent
 	[Property] public float SpawnRadius { get; set; }
 	[Property] public float SpawnDelay { get; set; }
 	[Property] public GameObject SpawnPosition { get; set; }
-	[Property] public GameObject SpawnPrefab { get; set; }
+	[Property] public string EnemyId { get; set; }
 	
 	public TimeSince SpawnTimer { get; set; }
 }

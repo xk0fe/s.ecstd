@@ -1,8 +1,8 @@
 {
-  "Title": "k.DlContainer",
+  "Title": "k.DlContainer2",
   "Type": "library",
   "Org": "kfe",
-  "Ident": "kdlcontainer",
+  "Ident": "kdlcontainer2",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,

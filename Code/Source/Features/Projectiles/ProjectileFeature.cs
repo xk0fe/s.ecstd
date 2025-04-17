@@ -1,10 +1,11 @@
-﻿using Sandbox.k.DependencyLocator;
+﻿using Sandbox.k;
+using Sandbox.k.DependencyLocator;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.Source.Features.Projectiles.Systems;
 
 namespace Sandbox.Source.Features.Projectiles;
 
-public class ProjectileFeature : FeatureBase
+public class ProjectileFeature : StorageFeatureBase
 {
 	public ProjectileFeature( DlContainer container )
 	{
@@ -13,5 +14,13 @@ public class ProjectileFeature : FeatureBase
 		AddSystem( new ProjectileViewSystem() );
 		AddSystem( new ProjectileLifeTimeSystem() );
 		AddSystem( new ProjectileCleanupSystem() );
+	}
+
+	public override void RegisterStorages( DlContainer container )
+	{
+	}
+
+	public override void RegisterSystems( DlContainer container )
+	{
 	}
 }

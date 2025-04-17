@@ -271,13 +271,10 @@
               "_type": "gameobject",
               "go": "19bf3bee-f6e9-4df7-a19b-1ccf9dcf82d3"
             },
-            "SpawnPrefab": {
-              "_type": "gameobject",
-              "prefab": "prefabs/testenemy.prefab"
-            },
+            "EnemyId": "0",
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 3814.483
+              "Relative": 651.0289
             }
           },
           "OnComponentDestroy": null,

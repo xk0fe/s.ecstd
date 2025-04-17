@@ -1,7 +1,6 @@
-﻿using Sandbox.k.DependencyLocator;
-using Sandbox.k.ECS.Extensions;
+﻿using Sandbox.k;
+using Sandbox.k.DependencyLocator;
 using Sandbox.Source.Features.Common;
-using Sandbox.Source.Features.Common.Storages;
 using Sandbox.Source.Features.Enemy;
 using Sandbox.Source.Features.Projectiles;
 using Sandbox.Source.Features.Slots;
@@ -11,15 +10,12 @@ using Sandbox.Source.Features.Waves;
 
 namespace Sandbox.Source;
 
-public class Boot : InitializerBase
+public class BootAdvanced : InitializerAdvanced
 {
 	[Property] private List<GameResource> _resources { get; set; } = new List<GameResource>();
-	
-	protected override void OnAwake()
+	protected override void Register( DlContainer container )
 	{
-		var container = new DlContainer()
-			.Register<TestStorage>();
-
+		base.Register( container );
 		foreach ( var resource in _resources )
 		{
 			container.Register( resource );
@@ -34,7 +30,5 @@ public class Boot : InitializerBase
 		AddFeature( new ProjectileFeature( container ) );
 		AddFeature( new EnemyFeature( container ) );
 		AddFeature( new WaveFeature( container ) );
-
-		base.OnAwake();
 	}
 }
