@@ -4,4 +4,5 @@
 public class TurretResource : GameResource
 {
 	[Property] public float ImpulseForce { get; set; }
+	[Property] public float Cooldown { get; set; }
 }

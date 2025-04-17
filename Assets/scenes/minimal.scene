@@ -241,6 +241,20 @@
         {
           "__type": "Sandbox.Source.Boot",
           "__guid": "09e20f6a-a8db-4af9-a2e9-110f91f2cffa",
+          "__enabled": false,
+          "_resources": [
+            "data/enemydatabase.npcdb"
+          ],
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
+        },
+        {
+          "__type": "Sandbox.Source.BootAdvanced",
+          "__guid": "734b1702-d604-4b0f-be13-b384909ae1d8",
           "_resources": [
             "data/enemydatabase.npcdb"
           ],
@@ -274,7 +288,7 @@
             "EnemyId": "0",
             "SpawnTimer": {
               "Absolute": 0,
-              "Relative": 651.0289
+              "Relative": 5190.772
             }
           },
           "OnComponentDestroy": null,

@@ -24,8 +24,6 @@ public class TurretShootSystem : SystemBase
 	public override void Update( float deltaTime )
 	{
 		base.Update( deltaTime );
-		var config = Config.Get<TurretConfig>( ConfigAliases.TURRET_CONFIG );
-		Log.Info(config.Turrets[0].Name);
 		foreach ( var entity in _filter )
 		{
 			ref var turretComponent = ref entity.GetComponent<TurretComponent>();
@@ -33,7 +31,7 @@ public class TurretShootSystem : SystemBase
 			var view = turretComponent.TurretView;
 			if ( view.IsValid() )
 			{
-				TweenManager.KillByGameObject( view );
+				TweenManager.KillByGameObject( view, true );
 				var randomShake = Random.Shared.Float( 1f, 5f );
 				view.ShakePosition( .25f, randomShake );
 				var originalScale = view.WorldScale;
@@ -41,7 +39,7 @@ public class TurretShootSystem : SystemBase
 			}
 
 			SpawnProjectile( turretComponent );
-			entity.SetComponent( new TurretCooldown { Cooldown = 2.5f, } );
+			entity.SetComponent( new TurretCooldown { Cooldown = turretComponent.Turret.Cooldown, } );
 		}
 	}
 

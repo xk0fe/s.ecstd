@@ -21,14 +21,14 @@ public class BootAdvanced : InitializerAdvanced
 			container.Register( resource );
 		}
 		
-		AddFeature( new CommonFeature( container ) );
+		AddFeature( new CommonFeature() );
 		// AddFeature( new PhysicsFeature( container ) );
 
-		AddFeature( new SpawnerFeature( container ) );
-		AddFeature( new SlotsFeature( container ) );
-		AddFeature( new TurretFeature( container ) );
-		AddFeature( new ProjectileFeature( container ) );
-		AddFeature( new EnemyFeature( container ) );
-		AddFeature( new WaveFeature( container ) );
+		AddFeature( new SpawnerFeature() );
+		AddFeature( new SlotsFeature() );
+		AddFeature( new TurretFeature() );
+		AddFeature( new ProjectileFeature() );
+		AddFeature( new EnemyFeature() );
+		AddFeature( new WaveFeature() );
 	}
 }

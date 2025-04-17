@@ -1,5 +1,6 @@
 {
-  "ImpulseForce": 100,
+  "ImpulseForce": 700,
+  "Cooldown": 2,
   "__references": [],
   "__version": 0
 }

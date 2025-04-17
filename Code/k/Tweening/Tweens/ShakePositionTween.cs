@@ -8,12 +8,14 @@ namespace Sandbox.k.Tweening.Tweens;
 public class ShakePositionTween : TweenBase
 {
 	private readonly float _power;
+	private readonly Vector3 _originalPosition;
 
 	public ShakePositionTween(GameObject target, float duration, float power, EasingType easing,
 		float delay, LoopType loopType, int loopCount, string id = null)
 		: base(target, duration, easing, delay, loopType, loopCount, id )
 	{
 		_power = power;
+		_originalPosition = target.WorldPosition;
 	}
 
 	protected override async Task Play(bool forward)
@@ -21,7 +23,6 @@ public class ShakePositionTween : TweenBase
 		TimeSince timeSince = 0;
 		var easingFunc = TweenExtensions.EasingFunction(_easing);
 		var duration = _duration;
-		var originalPosition = _target.WorldPosition;
 
 		while (timeSince < duration)
 		{
@@ -36,17 +37,17 @@ public class ShakePositionTween : TweenBase
 				Random.Shared.Float(-dampenedPower, dampenedPower)
 			);
 
-			_target.WorldPosition = originalPosition + offset;
+			_target.WorldPosition = _originalPosition + offset;
 
 			await GameTask.Yield();
 		}
 
-		_target.WorldPosition = originalPosition; // restore original position at the end
+		_target.WorldPosition = _originalPosition; // restore original position at the end
 	}
 
 	protected override void Complete(bool forward)
 	{
 		// Ensure final position is reset
-		_target.WorldPosition = _target.WorldPosition;
+		_target.WorldPosition = _originalPosition;
 	}
 }

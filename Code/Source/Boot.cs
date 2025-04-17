@@ -25,15 +25,15 @@ public class Boot : InitializerBase
 			container.Register( resource );
 		}
 		
-		AddFeature( new CommonFeature( container ) );
-		// AddFeature( new PhysicsFeature( container ) );
-
-		AddFeature( new SpawnerFeature( container ) );
-		AddFeature( new SlotsFeature( container ) );
-		AddFeature( new TurretFeature( container ) );
-		AddFeature( new ProjectileFeature( container ) );
-		AddFeature( new EnemyFeature( container ) );
-		AddFeature( new WaveFeature( container ) );
+		// AddFeature( new CommonFeature( container ) );
+		// // AddFeature( new PhysicsFeature( container ) );
+		//
+		// AddFeature( new SpawnerFeature( container ) );
+		// AddFeature( new SlotsFeature( container ) );
+		// AddFeature( new TurretFeature( container ) );
+		// AddFeature( new ProjectileFeature( container ) );
+		// AddFeature( new EnemyFeature( container ) );
+		// AddFeature( new WaveFeature( container ) );
 
 		base.OnAwake();
 	}

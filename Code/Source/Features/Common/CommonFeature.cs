@@ -7,17 +7,13 @@ namespace Sandbox.Source.Features.Common;
 
 public class CommonFeature : StorageFeatureBase
 {
-	public CommonFeature( DlContainer container )
-	{
-		AddSystem( new GameObjectPositionSystem() );
-		AddSystem( new DelayedDestroySystem() );
-	}
-
 	public override void RegisterStorages( DlContainer container )
 	{
 	}
 
 	public override void RegisterSystems( DlContainer container )
 	{
+		AddSystem( new GameObjectPositionSystem() );
+		AddSystem( new DelayedDestroySystem() );
 	}
 }

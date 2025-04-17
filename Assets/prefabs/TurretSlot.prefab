@@ -2,8 +2,7 @@
   "RootObject": {
     "__guid": "7472d9a0-b5f5-4e76-818c-69f3fd3142c4",
     "Flags": 0,
-    "Name": "TurretSlot",
-    "Position": "-100,0,0",
+    "Name": "turretslot",
     "Enabled": true,
     "Components": [
       {
@@ -318,7 +317,7 @@
                 "_type": "gameobject",
                 "go": "94b39363-76e4-451d-9531-742ed6d08dc4"
               },
-              "ShootPoint": "60,0,35",
+              "ShootPoint": "40,0,35",
               "Projectile": "data/cannonbalprojectile.prjtl",
               "Turret": "data/smallturret.trrt",
               "EnemyTags": [
@@ -693,7 +692,7 @@
                     "TargetColor": "0,1,0,1",
                     "CacheToDisk": true
                   },
-                  "compiled": null
+                  "compiled": "textures/generated/imagefile/3f97fc432c84b505.vtex"
                 }
               },
               {
@@ -941,7 +940,31 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,

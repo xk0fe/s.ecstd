@@ -7,7 +7,11 @@ namespace Sandbox.Source.Features.Enemy;
 
 public class EnemyFeature : StorageFeatureBase
 {
-	public EnemyFeature( DlContainer container )
+	public override void RegisterStorages( DlContainer container )
+	{
+	}
+
+	public override void RegisterSystems( DlContainer container )
 	{
 		AddSystem( new EnemyDeathAnimationSystem() );
 		AddSystem( new EnemySpawnerSystem( container ) );
@@ -15,13 +19,5 @@ public class EnemyFeature : StorageFeatureBase
 		AddSystem( new EnemyMovementSystem() );
 		AddSystem( new EnemySpawnerOverTimeSystem() );
 		AddSystem( new EnemyCleanupSystem() );
-	}
-
-	public override void RegisterStorages( DlContainer container )
-	{
-	}
-
-	public override void RegisterSystems( DlContainer container )
-	{
 	}
 }
