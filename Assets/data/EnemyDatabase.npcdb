@@ -1,5 +1,15 @@
 {
-  "HelloWorld": "Hello!",
+  "Enemies": [
+    {
+      "Id": "0",
+      "Prefab": {
+        "_type": "gameobject",
+        "prefab": "prefabs/testenemy.prefab"
+      },
+      "Name": "UFO A",
+      "Stats": null
+    }
+  ],
   "__references": [],
   "__version": 0
 }

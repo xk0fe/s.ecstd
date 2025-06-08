@@ -6,7 +6,18 @@ public class DlContainer
 {
 	private readonly Dictionary<string, object> _instances = new();
 	
-	public T Get<T>() where T : new()
+	public T Get<T>()
+	{
+		var key = GetKey<T>();
+		Log.Info( $"gettt: {key}" );
+		if (_instances.TryGetValue(key, out var instance))
+		{
+			return (T)instance;
+		}
+		return default;
+	}
+	
+	public T GetOrCreate<T>() where T : new()
 	{
 		var key = GetKey<T>();
 		if (_instances.TryGetValue(key, out var instance))
@@ -29,6 +40,7 @@ public class DlContainer
 	public DlContainer Register<T>(T instance)
 	{
 		var key = instance.GetType().ToString();
+		Log.Info( $"regiostrs: {key}" );
 		_instances[key] = instance;
 		return this;
 	}

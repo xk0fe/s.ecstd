@@ -12,7 +12,7 @@ public class SlotsFeature : StorageFeatureBase
 
 	public override void RegisterSystems( DlContainer container )
 	{
-		AddSystem( new SlotActiveSystem() );
+		AddSystem( new SlotActiveSystem( container ) );
 		AddSystem( new SlotUpdateTextSystem() );
 		AddSystem( new SlotUpgradeSystem() );
 	}

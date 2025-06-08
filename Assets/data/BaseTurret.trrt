@@ -1,1 +1,6 @@
-{}
+{
+  "ImpulseForce": 600,
+  "Cooldown": 5,
+  "__references": [],
+  "__version": 0
+}

@@ -1,0 +1,33 @@
+@using Sandbox.k.DependencyLocator
+@using Sandbox.Source.Features.Economy
+@inherits InjectablePanelComponent
+@namespace Sandbox
+@using Sandbox.UI;
+
+
+<root>
+	<div class="wallet">💲@GetCurrentMoney()</div>
+	<WebPanel Url="https://sbox.game/kfe/kecs/" />
+</root>
+
+@code
+{
+	
+	private Wallet _wallet;
+
+	public override void OnInject( DlContainer container )
+	{
+		_wallet = container.Get<Wallet>();
+	}
+
+	public int GetCurrentMoney()
+	{
+		return _wallet.CurrentMoney;
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine( GetCurrentMoney() );
+
+}

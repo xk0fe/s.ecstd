@@ -1,0 +1,18 @@
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<style>
+	.web-panel {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		pointer-events: all;
+	}
+</style>
+
+<root>
+	<WebPanel AcceptsFocus="@true" Url="https://sbox.game/kfe/kecs/" class="web-panel" />
+</root>

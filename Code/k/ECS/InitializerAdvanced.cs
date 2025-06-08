@@ -5,6 +5,7 @@ namespace Sandbox.k;
 public class InitializerAdvanced : Component
 {
 	private readonly List<StorageFeatureBase> _features = new List<StorageFeatureBase>();
+	
 	private DlContainer _container;
 	
 	protected void BindContainer( DlContainer container )
@@ -18,6 +19,13 @@ public class InitializerAdvanced : Component
 		{
 			feature.RegisterSystems( container );
 		}
+		
+		OnContainerBind( container );
+	}
+	
+	// can i make a better name really
+	protected virtual void OnContainerBind( DlContainer container )
+	{
 	}
 	
 	protected void AddFeature( StorageFeatureBase featureBase )
@@ -25,7 +33,7 @@ public class InitializerAdvanced : Component
 		_features.Add( featureBase );
 	}
 
-	protected virtual void Register( DlContainer container )
+	protected virtual void OnRegister( DlContainer container )
 	{
 	}
 	
@@ -33,7 +41,7 @@ public class InitializerAdvanced : Component
 	{
 		base.OnAwake();
 		var container = new DlContainer();
-		Register( container );
+		OnRegister( container );
 		BindContainer( container );
 		
 		foreach ( var feature in _features )

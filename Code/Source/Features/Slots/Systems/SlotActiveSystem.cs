@@ -1,6 +1,8 @@
-﻿using Sandbox.k.ECS.Core;
+﻿using Sandbox.k.DependencyLocator;
+using Sandbox.k.ECS.Core;
 using Sandbox.k.ECS.Extensions;
 using Sandbox.k.ECS.Extensions.Utils;
+using Sandbox.Source.Features.Economy;
 using Sandbox.Source.Features.Slots.Components;
 
 namespace Sandbox.Source.Features.Slots.Systems;
@@ -11,6 +13,13 @@ public class SlotActiveSystem : SystemBase
 		.With<SlotComponent>()
 		.With<SlotActiveTag>()
 		.Without<SlotCompleteTag>();
+	
+	private Wallet _wallet;
+	
+	public SlotActiveSystem( DlContainer container )
+	{
+		_wallet = container.Get<Wallet>();
+	}
 
 	public override void Update( float deltaTime )
 	{
@@ -24,6 +33,14 @@ public class SlotActiveSystem : SystemBase
 			{
 				entity.RemoveComponent<SlotActiveTag>();
 				entity.SetComponent( new SlotCompleteTag() );
+				continue;
+			}
+
+			var DEBUG_PRICE = 1;
+			
+			if ( !_wallet.TrySpendCurrency( DEBUG_PRICE ) )
+			{
+				entity.RemoveComponent<SlotActiveTag>();
 				continue;
 			}
 			component.CurrentMoney--;
